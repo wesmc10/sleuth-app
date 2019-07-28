@@ -1,0 +1,20 @@
+.LandingPage_flex_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 40px 15px;
+    text-align: center;
+}
+
+.LandingPage_subtitle {
+    margin-bottom: 60px;
+}
+
+.LandingPage_tagline {
+    margin-bottom: 30px;
+}
+
+.LandingPage_login_button {
+    margin-bottom: 10px;
+}
