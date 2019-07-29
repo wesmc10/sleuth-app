@@ -1,4 +1,4 @@
-.LogInPage_login_section {
+.SignUpPage_signup_section {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -6,15 +6,15 @@
     margin: 50% 15px;
 }
 
-.LogInPage_login_button {
+.SignUpPage_signup_button {
     margin-top: 15px;
     margin-bottom: 15px;
 }
 
-.Account_question, .SignUp_link {
+.Account_question, .LogIn_link {
     font-size: 12px;
 }
 
-.SignUp_link {
+.LogIn_link {
     margin-left: 5px;
 }
