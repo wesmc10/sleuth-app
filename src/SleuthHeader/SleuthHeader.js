@@ -1,15 +1,31 @@
 import React, { Component } from 'react';
 import './SleuthHeader.css';
-import { Link } from 'react-router-dom';
 import TokenService from '../token-service';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import SleuthContext from '../SleuthContext';
+import { withRouter } from 'react-router-dom';
 
-export default class SleuthHeader extends Component {   
+class SleuthHeader extends Component {
+    static contextType = SleuthContext;
+
+    handleLogOutClick = () => {
+        this.context.addCurrentUser({});
+        this.context.addCurrentJobs([]);
+        TokenService.clearStorage();
+        this.props.history.push('/');
+    }
 
     render() {
         const sleuthHeader = TokenService.hasAuthToken()
             ?   <header className="SleuthHeader_header">
                     <h2 className="SleuthHeader_title">Sleuth</h2>
-                    <Link to='/' className="SleuthHeader_logout">Log Out</Link>
+                    <button 
+                        type="button" 
+                        className="SleuthHeader_logout"
+                        onClick={this.handleLogOutClick}>
+                            <FontAwesomeIcon icon={faSignOutAlt} />
+                    </button>
                 </header>
             :   <header className="SleuthHeader_header">
                     <h2 className="SleuthHeader_title">Sleuth</h2>
@@ -23,3 +39,5 @@ export default class SleuthHeader extends Component {
         );
     }
 }
+
+export default withRouter(SleuthHeader);

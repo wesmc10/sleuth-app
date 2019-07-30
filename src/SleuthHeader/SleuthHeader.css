@@ -9,3 +9,13 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.SleuthHeader_logout {
+    font-size: 22px;
+    background-color: lightgray;
+    border: none;
+}
+
+.SleuthHeader_logout:hover {
+    cursor: pointer;
+}

@@ -6,7 +6,7 @@ import TokenService from '../token-service';
 export default class UserDashboard extends Component {
     componentDidMount() {
         if (!TokenService.hasAuthToken()) {
-            this.props.history.push('/login');
+            this.props.history.push('/');
         }
     }
 

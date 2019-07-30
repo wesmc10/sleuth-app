@@ -11,6 +11,10 @@ const TokenService = {
 
     hasAuthToken() {
         return !!TokenService.getAuthToken();
+    },
+
+    clearStorage() {
+        sessionStorage.clear();
     }
 };
 
