@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin: 50% 15px;
+    margin: 50% 15px 0;
 }
 
 .LogInPage_login_button {

@@ -12,6 +12,7 @@ export default class SignUpPage extends Component {
         lastName: '',
         userName: '',
         password: '',
+        buttonText: 'Sign Up',
         error: null
     };
 
@@ -26,6 +27,7 @@ export default class SignUpPage extends Component {
     handleFormSubmission = (e) => {
         e.preventDefault();
         this.setState({
+            buttonText: 'Loading...',
             error: null
         });
         const { firstName, lastName, userName, password } = this.state;
@@ -55,8 +57,8 @@ export default class SignUpPage extends Component {
                 password: ''
             });
             this.context.addCurrentUser(res.user);
-            this.props.history.push('/dashboard');
             TokenService.saveAuthToken(res.authToken);
+            this.props.history.push('/dashboard');
         })
         .catch(res => {
             this.setState({
@@ -90,7 +92,7 @@ export default class SignUpPage extends Component {
     }
 
     render() {
-        const { error } = this.state;
+        const { buttonText, error } = this.state;
 
         return (
             <div className="SignUpPage_main">
@@ -111,7 +113,7 @@ export default class SignUpPage extends Component {
                                 required
                                 onChange={this.handleFirstNameChange}
                             />
-                            <label htmlFor="SignUpPage_last_name" />
+                            <label htmlFor="SignUpPage_last_name">Last Name</label>
                             <input
                                 id="SignUpPage_last_name"
                                 name="SignUpPage_last_name"
@@ -120,7 +122,7 @@ export default class SignUpPage extends Component {
                                 required
                                 onChange={this.handleLastNameChange}
                             />
-                            <label htmlFor="SignUpPage_user_name" />
+                            <label htmlFor="SignUpPage_user_name">User Name</label>
                             <input
                                 id="SignUpPage_user_name"
                                 name="SignUpPage_user_name"
@@ -129,7 +131,7 @@ export default class SignUpPage extends Component {
                                 required
                                 onChange={this.handleUserNameChange}
                             />
-                            <label htmlFor="SignUpPage_password" />
+                            <label htmlFor="SignUpPage_password">Password</label>
                             <input
                                 id="SignUpPage_password"
                                 name="SignUpPage_password"
@@ -139,7 +141,7 @@ export default class SignUpPage extends Component {
                                 onChange={this.handlePasswordChange}
                             />
             
-                            <button type="submit" className="SignUpPage_signup_button">Sign Up</button>
+                            <button type="submit" className="SignUpPage_signup_button">{buttonText}</button>
                         </section>
                     </fieldset>
                 </form>

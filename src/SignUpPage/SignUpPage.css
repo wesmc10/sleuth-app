@@ -4,7 +4,6 @@
     justify-content: flex-start;
     align-items: center;
     margin: 50% 15px 0;
-    text-align: center;
 }
 
 .SignUpPage_signup_button {
@@ -29,5 +28,5 @@ fieldset {
 }
 
 legend, label {
-    visibility: hidden;
+    display: none;
 }

@@ -7,7 +7,6 @@ import LogInPage from '../LogInPage/LogInPage';
 import SignUpPage from '../SignUpPage/SignUpPage';
 import UserDashBoard from '../UserDashboard/UserDashboard';
 import SleuthContext from '../SleuthContext';
-import config from '../config';
 
 export default class App extends Component {
 	state = {

@@ -2,3 +2,10 @@
     background-color: lightgray;
     padding: 15px;
 }
+
+.SleuthHeader_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
