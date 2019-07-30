@@ -1,0 +1,11 @@
+.PageNotFound_content_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 40px 15px;
+}
+
+.PageNotFound_title {
+    margin-bottom: 15px;
+}

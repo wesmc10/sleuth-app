@@ -7,6 +7,7 @@ import LogInPage from '../LogInPage/LogInPage';
 import SignUpPage from '../SignUpPage/SignUpPage';
 import UserDashBoard from '../UserDashboard/UserDashboard';
 import SleuthContext from '../SleuthContext';
+import PageNotFound from '../PageNotFound/PageNotFound';
 
 export default class App extends Component {
 	state = {
@@ -88,6 +89,9 @@ export default class App extends Component {
 								<Route
 									path='/dashboard'
 									component={UserDashBoard}
+								/>
+								<Route
+									component={PageNotFound}
 								/>
 							</Switch>
 						</ScrollToTop>
