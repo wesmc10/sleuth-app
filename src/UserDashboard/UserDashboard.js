@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import './UserDashboard.css';
 import SleuthHeader from '../SleuthHeader/SleuthHeader';
+import TokenService from '../token-service';
 
 export default class UserDashboard extends Component {
+    componentDidMount() {
+        if (!TokenService.hasAuthToken()) {
+            this.props.history.push('/login');
+        }
+    }
+
     render() {
         return (
             <div className="UserDashboard_main">

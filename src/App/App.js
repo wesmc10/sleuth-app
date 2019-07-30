@@ -7,12 +7,12 @@ import LogInPage from '../LogInPage/LogInPage';
 import SignUpPage from '../SignUpPage/SignUpPage';
 import UserDashBoard from '../UserDashboard/UserDashboard';
 import SleuthContext from '../SleuthContext';
+import config from '../config';
 
 export default class App extends Component {
 	state = {
 		currentUser: {},
 		currentJobs: [],
-		userIsLoggedIn: false,
 		error: null
 	};
 
@@ -54,12 +54,6 @@ export default class App extends Component {
 		this.setSessionStorage('currentJobs', jobs);
 	}
 
-	handleChangeUserIsLoggedIn = () => {
-		this.setState({
-			userIsLoggedIn: !this.state.userIsLoggedIn
-		});
-	}
-
     render() {
 		const { error } = this.state;
 
@@ -67,8 +61,7 @@ export default class App extends Component {
 			currentUser: this.state.currentUser,
 			currentJobs: this.state.currentJobs,
 			addCurrentUser: this.handleAddCurrentUser,
-			addCurrentJobs: this.handleAddCurrentJobs,
-			changeUserIsLoggedIn: this.handleChangeUserIsLoggedIn
+			addCurrentJobs: this.handleAddCurrentJobs
 		};
 
 		return (

@@ -17,6 +17,12 @@ export default class SignUpPage extends Component {
 
     static contextType = SleuthContext;
 
+    componentDidMount() {
+        if (TokenService.hasAuthToken()) {
+            this.props.history.push('/dashboard');
+        }
+    }
+
     handleFormSubmission = (e) => {
         e.preventDefault();
         this.setState({
@@ -49,7 +55,6 @@ export default class SignUpPage extends Component {
                 password: ''
             });
             this.context.addCurrentUser(res.user);
-            this.context.changeUserIsLoggedIn();
             this.props.history.push('/dashboard');
             TokenService.saveAuthToken(res.authToken);
         })

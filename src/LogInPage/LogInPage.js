@@ -3,6 +3,7 @@ import './LogInPage.css';
 import { Link } from 'react-router-dom';
 import SleuthHeader from '../SleuthHeader/SleuthHeader';
 import SleuthContext from '../SleuthContext';
+import TokenService from '../token-service';
 
 export default class LogInPage extends Component {
     state = {
@@ -12,6 +13,12 @@ export default class LogInPage extends Component {
     };
 
     static contextType = SleuthContext;
+
+    componentDidMount() {
+        if (TokenService.hasAuthToken()) {
+            this.props.history.push('/dashboard');
+        }
+    }
 
     handleUserNameChange = (e) => {
         this.setState({
