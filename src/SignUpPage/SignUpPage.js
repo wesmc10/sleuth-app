@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './SignUpPage.css';
 import { Link } from 'react-router-dom';
 import SleuthHeader from '../SleuthHeader/SleuthHeader';
+import SleuthContext from '../SleuthContext';
+import config from '../config';
+import TokenService from '../token-service';
 
 export default class SignUpPage extends Component {
     state = {
@@ -11,6 +14,51 @@ export default class SignUpPage extends Component {
         password: '',
         error: null
     };
+
+    static contextType = SleuthContext;
+
+    handleFormSubmission = (e) => {
+        e.preventDefault();
+        this.setState({
+            error: null
+        });
+        const { firstName, lastName, userName, password } = this.state;
+
+        fetch(`${config.API_ENDPOINT}/users`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                first_name: firstName,
+                last_name: lastName,
+                user_name: userName,
+                password
+            })
+        })
+        .then(res =>
+            !res.ok
+                ? res.json().then(e => Promise.reject(e))
+                : res.json()
+        )
+        .then(res => {
+            this.setState({
+                firstName: '',
+                lastName: '',
+                userName: '',
+                password: ''
+            });
+            this.context.addCurrentUser(res.user);
+            this.context.changeUserIsLoggedIn();
+            this.props.history.push('/dashboard');
+            TokenService.saveAuthToken(res.authToken);
+        })
+        .catch(res => {
+            this.setState({
+                error: res.error
+            });
+        })
+    }
 
     handleFirstNameChange = (e) => {
         this.setState({
@@ -41,52 +89,57 @@ export default class SignUpPage extends Component {
 
         return (
             <div className="SignUpPage_main">
-                <SleuthHeader />
-                <div role="alert">
-					{error && <p className="red">{error}</p>}
-				</div>
-                <section className="SignUpPage_signup_section">
-                    <label htmlFor="SignUpPage_first_name" />
-                    <input
-                        id="SignUpPage_first_name"
-                        name="SignUpPage_first_name"
-                        type="text"
-                        placeholder="First name"
-                        required
-                        onChange={this.handleFirstNameChange}
-                    />
-                    <label htmlFor="SignUpPage_last_name" />
-                    <input
-                        id="SignUpPage_last_name"
-                        name="SignUpPage_last_name"
-                        type="text"
-                        placeholder="Last name"
-                        required
-                        onChange={this.handleLastNameChange}
-                    />
-                    <label htmlFor="SignUpPage_user_name" />
-                    <input
-                        id="SignUpPage_user_name"
-                        name="SignUpPage_user_name"
-                        type="text"
-                        placeholder="User name"
-                        required
-                        onChange={this.handleUserNameChange}
-                    />
-                    <label htmlFor="SignUpPage_password" />
-                    <input
-                        id="SignUpPage_password"
-                        name="SignUpPage_password"
-                        type="password"
-                        placeholder="Password"
-                        required
-                        onChange={this.handlePasswordChange}
-                    />
-    
-                    <button type="submit" className="SignUpPage_signup_button">Sign Up</button>
-    
-                    <p className="Account_question">Don't have an account?<Link to='/login' className="LogIn_link">Log In</Link></p>
-                </section>
+                <SleuthHeader />              
+                <form className="SignUpPage_form" onSubmit={this.handleFormSubmission}>
+                    <fieldset>
+                        <section className="SignUpPage_signup_section">
+                            <legend>Sign Up Form</legend>
+                            <div role="alert">
+					            {error && <p className="red">{error}</p>}
+				            </div>  
+                            <label htmlFor="SignUpPage_first_name">First Name</label>
+                            <input
+                                id="SignUpPage_first_name"
+                                name="SignUpPage_first_name"
+                                type="text"
+                                placeholder="First name"
+                                required
+                                onChange={this.handleFirstNameChange}
+                            />
+                            <label htmlFor="SignUpPage_last_name" />
+                            <input
+                                id="SignUpPage_last_name"
+                                name="SignUpPage_last_name"
+                                type="text"
+                                placeholder="Last name"
+                                required
+                                onChange={this.handleLastNameChange}
+                            />
+                            <label htmlFor="SignUpPage_user_name" />
+                            <input
+                                id="SignUpPage_user_name"
+                                name="SignUpPage_user_name"
+                                type="text"
+                                placeholder="User name"
+                                required
+                                onChange={this.handleUserNameChange}
+                            />
+                            <label htmlFor="SignUpPage_password" />
+                            <input
+                                id="SignUpPage_password"
+                                name="SignUpPage_password"
+                                type="password"
+                                placeholder="Password"
+                                required
+                                onChange={this.handlePasswordChange}
+                            />
+            
+                            <button type="submit" className="SignUpPage_signup_button">Sign Up</button>
+                        </section>
+                    </fieldset>
+                </form>
+
+                <p className="Account_question">Don't have an account?<Link to='/login' className="LogIn_link">Log In</Link></p>
             </div>
         );
     }

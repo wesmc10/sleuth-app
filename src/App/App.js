@@ -12,6 +12,7 @@ export default class App extends Component {
 	state = {
 		currentUser: {},
 		currentJobs: [],
+		userIsLoggedIn: false,
 		error: null
 	};
 
@@ -53,6 +54,12 @@ export default class App extends Component {
 		this.setSessionStorage('currentJobs', jobs);
 	}
 
+	handleChangeUserIsLoggedIn = () => {
+		this.setState({
+			userIsLoggedIn: !this.state.userIsLoggedIn
+		});
+	}
+
     render() {
 		const { error } = this.state;
 
@@ -60,7 +67,8 @@ export default class App extends Component {
 			currentUser: this.state.currentUser,
 			currentJobs: this.state.currentJobs,
 			addCurrentUser: this.handleAddCurrentUser,
-			addCurrentJobs: this.handleAddCurrentJobs
+			addCurrentJobs: this.handleAddCurrentJobs,
+			changeUserIsLoggedIn: this.handleChangeUserIsLoggedIn
 		};
 
 		return (

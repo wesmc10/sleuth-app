@@ -2,6 +2,7 @@ import React,{ Component } from 'react';
 import './LogInPage.css';
 import { Link } from 'react-router-dom';
 import SleuthHeader from '../SleuthHeader/SleuthHeader';
+import SleuthContext from '../SleuthContext';
 
 export default class LogInPage extends Component {
     state = {
@@ -9,6 +10,8 @@ export default class LogInPage extends Component {
         password: '',
         error: null
     };
+
+    static contextType = SleuthContext;
 
     handleUserNameChange = (e) => {
         this.setState({
