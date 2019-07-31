@@ -3,4 +3,18 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    margin: 70px 15px 30px;
+}
+
+.UserDashboard_add_job {
+    background-color: white;
+    border: none;
+    font-size: 35px;
+    float: right;
+    margin-right: 15px;
+    margin-top: 15px;
+}
+
+.UserDashboard_add_job:hover {
+    cursor: pointer;
 }

@@ -1,0 +1,28 @@
+.hide {
+    display: none;
+}
+
+.display {
+    display: block;
+}
+
+.Modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.AddJobModal_section {
+    position: fixed;
+    background-color: white;
+    width: 80%;
+    max-width: 1000px;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+}
