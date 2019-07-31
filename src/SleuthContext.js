@@ -4,7 +4,8 @@ const SleuthContext = React.createContext({
     currentUser: {},
     currentJobs: [],
     addCurrentUser: () => {},
-    addCurrentJobs: () => {}
+    addCurrentJobs: () => {},
+    addNewJob: () => {}
 });
 
 export default SleuthContext;

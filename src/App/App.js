@@ -8,6 +8,7 @@ import SignUpPage from '../SignUpPage/SignUpPage';
 import UserDashBoard from '../UserDashboard/UserDashboard';
 import SleuthContext from '../SleuthContext';
 import PageNotFound from '../PageNotFound/PageNotFound';
+import AddJobModal from '../AddJobModal/AddJobModal';
 
 export default class App extends Component {
 	state = {
@@ -54,6 +55,16 @@ export default class App extends Component {
 		this.setSessionStorage('currentJobs', jobs);
 	}
 
+	handleAddNewJob = (job) => {
+		this.setState({
+			currentJobs: [
+				...this.state.currentJobs,
+				job
+			]
+		});
+		this.setSessionStorage('currentJobs', this.state.currentJobs);
+	}
+
     render() {
 		const { error } = this.state;
 
@@ -61,7 +72,8 @@ export default class App extends Component {
 			currentUser: this.state.currentUser,
 			currentJobs: this.state.currentJobs,
 			addCurrentUser: this.handleAddCurrentUser,
-			addCurrentJobs: this.handleAddCurrentJobs
+			addCurrentJobs: this.handleAddCurrentJobs,
+			addNewJob: this.handleAddNewJob
 		};
 
 		return (
@@ -89,6 +101,10 @@ export default class App extends Component {
 								<Route
 									path='/dashboard'
 									component={UserDashBoard}
+								/>
+								<Route
+									path='/dashboard/add-job'
+									component={AddJobModal}
 								/>
 								<Route
 									component={PageNotFound}

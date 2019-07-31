@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import config from '../config';
 import SleuthContext from '../SleuthContext';
+import TokenService from '../token-service';
 
 export default class AddJobModal extends Component {
     state = {
@@ -13,7 +14,7 @@ export default class AddJobModal extends Component {
         salary: '',
         dateApplied: '',
         interviewDate: '',
-        applicationStatus: '',
+        applicationStatus: 'Applied',
         notes: '',
         error: null
     };
@@ -31,7 +32,31 @@ export default class AddJobModal extends Component {
     handleClick = (e) => {
         if (!this.node.contains(e.target)) {
             this.props.closeModal();
+            this.setState({
+                company: '',
+                position: '',
+                location: '',
+                salary: '',
+                dateApplied: '',
+                interviewDate: '',
+                applicationStatus: 'Applied',
+                notes: ''
+            });
         }
+    }
+
+    handleClickCloseModal = () => {
+        this.props.closeModal();
+        this.setState({
+            company: '',
+            position: '',
+            location: '',
+            salary: '',
+            dateApplied: '',
+            interviewDate: '',
+            applicationStatus: 'Applied',
+            notes: ''
+        });
     }
 
     handleFormSubmission = (e) => {
@@ -52,19 +77,20 @@ export default class AddJobModal extends Component {
         const newJob = {
             company,
             position,
-            location,
+            job_location: location,
             salary,
-            dateApplied,
-            interviewDate,
-            applicationStatus,
+            date_applied: dateApplied,
+            interview_date: interviewDate,
+            application_status: applicationStatus,
             notes,
             user_id: this.context.currentUser.id
         };
 
-        fetch(`${config.API_ENDPOINT}/api/jobs`, {
+        fetch(`${config.API_ENDPOINT}/jobs`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${TokenService.getAuthToken()}` 
             },
             body: JSON.stringify(newJob)
         })
@@ -81,11 +107,20 @@ export default class AddJobModal extends Component {
                 salary: '',
                 dateApplied: '',
                 interviewDate: '',
-                applicationStatus: '',
+                applicationStatus: 'Applied',
                 notes: ''
             });
-            // continue adding here
+            if (res.interview_date === '1969-12-31') {
+                res.interview_date = null;
+            }
+            this.context.addNewJob(res);
+            this.props.closeModal();
         })
+        .catch(res => {
+            this.setState({
+                error: res.error
+            });
+        });
     }
 
     handleCompanyChange = (e) => {
@@ -137,7 +172,16 @@ export default class AddJobModal extends Component {
     }
 
     render() {
-        const { error } = this.state;
+        const { 
+            company, 
+            position, 
+            location, 
+            salary, 
+            dateApplied, 
+            interviewDate,
+            notes, 
+            error 
+        } = this.state;
         const { showModal } = this.props;
         const showOrHideModal = showModal ? 'Modal display' : 'Modal hide';
 
@@ -151,7 +195,7 @@ export default class AddJobModal extends Component {
                                 <button
                                     type="button"
                                     className="close_modal_button"
-                                    onClick={this.props.closeModal}>
+                                    onClick={this.handleClickCloseModal}>
                                         <FontAwesomeIcon icon={faTimes} />
                                 </button>
                                 <div role="alert">
@@ -162,6 +206,7 @@ export default class AddJobModal extends Component {
                                     type="text"
                                     id="company"
                                     name="company"
+                                    value={company}
                                     required
                                     onChange={this.handleCompanyChange}
                                 />
@@ -170,6 +215,7 @@ export default class AddJobModal extends Component {
                                     type="text"
                                     id="position"
                                     name="position"
+                                    value={position}
                                     required
                                     onChange={this.handlePositionChange}
                                 />
@@ -178,6 +224,7 @@ export default class AddJobModal extends Component {
                                     type="text"
                                     id="location"
                                     name="location"
+                                    value={location}
                                     required
                                     onChange={this.handleLocationChange}
                                 />
@@ -186,6 +233,7 @@ export default class AddJobModal extends Component {
                                     type="text"
                                     id="salary"
                                     name="salary"
+                                    value={salary}
                                     onChange={this.handleSalaryChange}
                                 />
                                 <label htmlFor="date_applied">Date Applied</label>
@@ -193,6 +241,7 @@ export default class AddJobModal extends Component {
                                     type="date"
                                     id="date_applied"
                                     name="date_applied"
+                                    value={dateApplied}
                                     required
                                     onChange={this.handleDateAppliedChange}
                                 />
@@ -201,22 +250,24 @@ export default class AddJobModal extends Component {
                                     type="date"
                                     id="interview_date"
                                     name="interview_date"
+                                    value={interviewDate}
                                     onChange={this.handleInterviewDateChange}
                                 />
                                 <label htmlFor="application_status">Application Status</label>
-                                <select id="application_status">
-                                    <option value="applied">Applied</option>
-                                    <option value="phone">Phone</option>
-                                    <option value="technical">Technical</option>
-                                    <option value="on-site">On-site</option>
-                                    <option value="offer">Offer</option>
-                                    <option value="rejected">Rejected</option>
+                                <select id="application_status" onChange={this.handleApplicationStatusChange}>
+                                    <option value="Applied">Applied</option>
+                                    <option value="Phone">Phone</option>
+                                    <option value="Technical">Technical</option>
+                                    <option value="On-site">On-site</option>
+                                    <option value="Offer">Offer</option>
+                                    <option value="Rejected">Rejected</option>
                                 </select>
                                 <label htmlFor="notes">Notes</label>
                                 <textarea
                                     type="text"
                                     id="notes"
                                     name="notes"
+                                    value={notes}
                                     cols="30"
                                     rows="5"
                                     onChange={this.handleNotesChange}

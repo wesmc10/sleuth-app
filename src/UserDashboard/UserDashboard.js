@@ -16,15 +16,23 @@ export default class UserDashboard extends Component {
         if (!TokenService.hasAuthToken()) {
             this.props.history.push('/');
         }
+
+        if (this.props.location.pathname === '/dashboard/add-job') {
+            this.setState({
+                showAddJobModal: true
+            });
+        }
     }
 
     handleClickAddJobButton = () => {
+        this.props.history.push('/dashboard/add-job');
         this.setState({
             showAddJobModal: true
         });
     }
 
     handleCloseModal = () => {
+        this.props.history.push('/dashboard');
         this.setState({
             showAddJobModal: false
         });
