@@ -19,11 +19,13 @@
     cursor: pointer;
 }
 
-.UserDashboard_applied_title, .UserDashboard_phone_title, .UserDashboard_technical_title {
+.UserDashboard_applied_title, .UserDashboard_phone_title, .UserDashboard_technical_title,
+.UserDashboard_on_site_title, .UserDashboard_offers_title, .UserDashboard_rejected_title {
     text-align: center;
     margin-bottom: 30px;
 }
 
-.UserDashboard_upcoming, .UserDashboard_applied, .UserDashboard_phone, .UserDashboard_technical {
+.UserDashboard_upcoming, .UserDashboard_applied, .UserDashboard_phone, .UserDashboard_technical,
+.UserDashboard_on_site, .UserDashboard_offers, .UserDashboard_rejected {
     margin-bottom: 50px;
 }

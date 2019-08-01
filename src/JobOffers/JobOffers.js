@@ -1,23 +1,23 @@
 import React from 'react';
-import './PhoneInterviews.css';
+import './JobOffers.css';
 import dateFns from 'date-fns';
 import InterviewNode from '../InterviewNode/InterviewNode';
 
-export default function PhoneInterviews() {
+export default function JobOffers() {
     let currentJobs = sessionStorage.getItem('currentJobs');
     currentJobs = currentJobs && JSON.parse(currentJobs);
 
-    let phoneInterviews;
+    let jobOffers;
     if (currentJobs) {
-        phoneInterviews = currentJobs
-            .filter(job => job.application_status === 'Phone')
+        jobOffers = currentJobs
+            .filter(job => job.application_status === 'Offer')
             .sort((a, b) => (dateFns.parse(a.interview_date) < dateFns.parse(b.interview_date)) ? -1 : 1)
         ;
 
-        if (phoneInterviews.length === 0) {
-            phoneInterviews = 'No phone interviews are currently scheduled';
+        if (jobOffers.length === 0) {
+            jobOffers = 'No current job offers';
         } else {
-            phoneInterviews = phoneInterviews.map(job =>
+            jobOffers = jobOffers.map(job =>
                 <li key={job.id}>
                     <InterviewNode
                         job={job}
@@ -29,8 +29,8 @@ export default function PhoneInterviews() {
     }
 
     return (
-        <div className="Phone_interviews">
-            {phoneInterviews}
+        <div className="Job_offers">
+            {jobOffers}
         </div>
     );
 }

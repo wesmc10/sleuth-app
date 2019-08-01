@@ -1,23 +1,23 @@
 import React from 'react';
-import './PhoneInterviews.css';
+import './JobsRejected.css';
 import dateFns from 'date-fns';
 import InterviewNode from '../InterviewNode/InterviewNode';
 
-export default function PhoneInterviews() {
+export default function JobsRejected() {
     let currentJobs = sessionStorage.getItem('currentJobs');
     currentJobs = currentJobs && JSON.parse(currentJobs);
 
-    let phoneInterviews;
+    let jobsRejected;
     if (currentJobs) {
-        phoneInterviews = currentJobs
-            .filter(job => job.application_status === 'Phone')
+        jobsRejected = currentJobs
+            .filter(job => job.application_status === 'Rejected')
             .sort((a, b) => (dateFns.parse(a.interview_date) < dateFns.parse(b.interview_date)) ? -1 : 1)
         ;
 
-        if (phoneInterviews.length === 0) {
-            phoneInterviews = 'No phone interviews are currently scheduled';
+        if (jobsRejected.length === 0) {
+            jobsRejected = 'No current rejections';
         } else {
-            phoneInterviews = phoneInterviews.map(job =>
+            jobsRejected = jobsRejected.map(job =>
                 <li key={job.id}>
                     <InterviewNode
                         job={job}
@@ -29,8 +29,8 @@ export default function PhoneInterviews() {
     }
 
     return (
-        <div className="Phone_interviews">
-            {phoneInterviews}
+        <div className="Jobs_rejected">
+            {jobsRejected}
         </div>
     );
 }

@@ -1,23 +1,23 @@
 import React from 'react';
-import './PhoneInterviews.css';
+import './OnSiteInterviews.css';
 import dateFns from 'date-fns';
 import InterviewNode from '../InterviewNode/InterviewNode';
 
-export default function PhoneInterviews() {
+export default function OnSiteInterviews() {
     let currentJobs = sessionStorage.getItem('currentJobs');
     currentJobs = currentJobs && JSON.parse(currentJobs);
 
-    let phoneInterviews;
+    let onSiteInterviews;
     if (currentJobs) {
-        phoneInterviews = currentJobs
-            .filter(job => job.application_status === 'Phone')
+        onSiteInterviews = currentJobs
+            .filter(job => job.application_status === 'On-site')
             .sort((a, b) => (dateFns.parse(a.interview_date) < dateFns.parse(b.interview_date)) ? -1 : 1)
         ;
 
-        if (phoneInterviews.length === 0) {
-            phoneInterviews = 'No phone interviews are currently scheduled';
+        if (onSiteInterviews.length === 0) {
+            onSiteInterviews = 'No on-site interviews are currently scheduled';
         } else {
-            phoneInterviews = phoneInterviews.map(job =>
+            onSiteInterviews = onSiteInterviews.map(job =>
                 <li key={job.id}>
                     <InterviewNode
                         job={job}
@@ -29,8 +29,8 @@ export default function PhoneInterviews() {
     }
 
     return (
-        <div className="Phone_interviews">
-            {phoneInterviews}
+        <div className="On_site_interviews">
+            {onSiteInterviews}
         </div>
     );
 }

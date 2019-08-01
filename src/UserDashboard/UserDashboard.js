@@ -9,6 +9,9 @@ import UpcomingInterviews from '../UpcomingInterviews/UpcomingInterviews';
 import AppliedJobs from '../AppliedJobs/AppliedJobs';
 import PhoneInterviews from '../PhoneInterviews/PhoneInterviews';
 import TechnicalInterviews from '../TechnicalInterviews/TechnicalInterviews';
+import OnSiteInterviews from '../OnSiteInterviews/OnSiteInterviews';
+import JobOffers from '../JobOffers/JobOffers';
+import JobsRejected from '../JobsRejected/JobsRejected';
 
 export default class UserDashboard extends Component {
     state = {
@@ -76,6 +79,18 @@ export default class UserDashboard extends Component {
                     <section className="UserDashboard_technical">
                         <h2 className="UserDashboard_technical_title">Technical</h2>
                         <TechnicalInterviews />
+                    </section>
+                    <section className="UserDashboard_on_site">
+                        <h2 className="UserDashboard_on_site_title">On-site</h2>
+                        <OnSiteInterviews />
+                    </section>
+                    <section className="UserDashboard_offers">
+                        <h2 className="UserDashboard_offers_title">Offers</h2>
+                        <JobOffers />
+                    </section>
+                    <section className="UserDashboard_rejected">
+                        <h2 className="UserDashboard_rejected_title">Rejected</h2>
+                        <JobsRejected />
                     </section>
                 </div>
                 <AddJobModal
