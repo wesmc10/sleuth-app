@@ -26,6 +26,8 @@ export default function OnSiteInterviews() {
                 </li>
             );
         }
+    } else {
+        onSiteInterviews = 'No on-site interviews are currently scheduled';
     }
 
     return (

@@ -28,6 +28,7 @@ class InterviewNode extends Component {
         })
         .then(noContent => {
             this.context.deleteJob(id);
+            this.props.history.push('dashboard');
         })
         .catch(error => console.error(error));
     }

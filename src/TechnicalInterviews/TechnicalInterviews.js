@@ -26,6 +26,8 @@ export default function TechnicalInterviews() {
                 </li>
             );
         }
+    } else {
+        technicalInterviews = 'No technical interviews are currently scheduled';
     }
 
     return (

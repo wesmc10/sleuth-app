@@ -16,14 +16,20 @@ export default function UpcomingInterviews(props) {
             .sort((a, b) => (dateFns.parse(a.interview_date) < dateFns.parse(b.interview_date)) ? -1 : 1)
         ;
         
-        upcomingInterviews = upcomingInterviews.map(job =>
-            <li key={job.id}>
-                <InterviewNode
-                    job={job}
-                    interview={job.interview_date}
-                />
-            </li>
-        );
+        if (upcomingInterviews.length === 0) {
+            upcomingInterviews = 'No interviews scheduled within the next week';
+        } else {
+            upcomingInterviews = upcomingInterviews.map(job =>
+                <li key={job.id}>
+                    <InterviewNode
+                        job={job}
+                        interview={job.interview_date}
+                    />
+                </li>
+            );
+        }
+    } else {
+        upcomingInterviews = 'No interviews scheduled within the next week';
     }
 
     return (

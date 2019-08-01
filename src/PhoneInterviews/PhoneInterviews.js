@@ -26,6 +26,8 @@ export default function PhoneInterviews() {
                 </li>
             );
         }
+    } else {
+        phoneInterviews = 'No phone interviews are currently scheduled';
     }
 
     return (

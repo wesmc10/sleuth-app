@@ -26,6 +26,8 @@ export default function JobsRejected() {
                 </li>
             );
         }
+    } else {
+        jobsRejected = 'No current rejections';
     }
 
     return (

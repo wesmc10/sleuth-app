@@ -26,6 +26,8 @@ export default function JobOffers() {
                 </li>
             );
         }
+    } else {
+        jobOffers = 'No current job offers';
     }
 
     return (
