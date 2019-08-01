@@ -25,6 +25,10 @@ export default class UserDashboard extends Component {
                 showAddJobModal: true
             });
         }
+
+        let currentJobs = sessionStorage.getItem('currentJobs');
+        currentJobs = currentJobs && JSON.parse(currentJobs);
+        console.log(currentJobs);
     }
 
     handleClickAddJobButton = () => {
@@ -44,16 +48,16 @@ export default class UserDashboard extends Component {
     render() {
         const { today, error } = this.state;
         let currentJobs = sessionStorage.getItem('currentJobs');
+        currentJobs = currentJobs && JSON.parse(currentJobs);
         let upcomingInterviewsSection;
 
         if (currentJobs) {
-            currentJobs = currentJobs && JSON.parse(currentJobs);
 
             const upcomingInterviews = currentJobs
                 .filter(job => dateFns.parse(job.interview_date) >= today && dateFns.parse(job.interview_date) <= dateFns.addDays(today, 7))
             ;
 
-            upcomingInterviewsSection = upcomingInterviews
+            upcomingInterviewsSection = upcomingInterviews.length !== 0
                 ?   <UpcomingInterviews
                         today={today}
                     />

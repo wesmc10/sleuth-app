@@ -3,4 +3,27 @@
     border: 1px solid black;
     border-radius: 25px;
     margin-bottom: 10px;
+    position: relative;
+}
+
+.User_upcoming_interview:hover {
+    cursor: pointer;
+}
+
+.User_upcoming_interview:hover .Job_delete_button {
+    display: inline;
+}
+
+.Job_delete_button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 18px;
+    background-color: white;
+    border: none;
+    display: none;
+}
+
+.Job_delete_button:hover {
+    cursor: pointer;
 }

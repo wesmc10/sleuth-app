@@ -65,6 +65,19 @@ export default class App extends Component {
 		this.setSessionStorage('currentJobs', this.state.currentJobs);
 	}
 
+	handleDeleteJob = (jobId) => {
+		const remainingJobs = this.state.currentJobs.filter(job => job.id !== jobId);
+		this.setState({
+			currentJobs: remainingJobs
+		});
+
+		if (this.state.currentJobs.length === 0) {
+			sessionStorage.removeItem('currentJobs');
+		} else {
+			this.setSessionStorage('currentJobs', this.state.currentJobs);
+		}
+	}
+
     render() {
 		const { error } = this.state;
 
@@ -73,7 +86,8 @@ export default class App extends Component {
 			currentJobs: this.state.currentJobs,
 			addCurrentUser: this.handleAddCurrentUser,
 			addCurrentJobs: this.handleAddCurrentJobs,
-			addNewJob: this.handleAddNewJob
+			addNewJob: this.handleAddNewJob,
+			deleteJob: this.handleDeleteJob
 		};
 
 		return (

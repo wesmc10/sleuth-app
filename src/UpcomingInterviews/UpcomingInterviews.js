@@ -16,6 +16,7 @@ export default function UpcomingInterviews(props) {
     upcomingInterviews = upcomingInterviews.map(interview => 
         <InterviewNode
             interview={interview}
+            key={interview.id}
         />  
     );
 
