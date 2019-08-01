@@ -6,7 +6,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 import AddJobModal from '../AddJobModal/AddJobModal';
 import UpcomingInterviews from '../UpcomingInterviews/UpcomingInterviews';
-import dateFns from 'date-fns';
+// import dateFns from 'date-fns';
+import AppliedJobs from '../AppliedJobs/AppliedJobs';
+import PhoneInterviews from '../PhoneInterviews/PhoneInterviews';
+import TechnicalInterviews from '../TechnicalInterviews/TechnicalInterviews';
 
 export default class UserDashboard extends Component {
     state = {
@@ -25,10 +28,6 @@ export default class UserDashboard extends Component {
                 showAddJobModal: true
             });
         }
-
-        let currentJobs = sessionStorage.getItem('currentJobs');
-        currentJobs = currentJobs && JSON.parse(currentJobs);
-        console.log(currentJobs);
     }
 
     handleClickAddJobButton = () => {
@@ -47,23 +46,22 @@ export default class UserDashboard extends Component {
 
     render() {
         const { today, error } = this.state;
-        let currentJobs = sessionStorage.getItem('currentJobs');
-        currentJobs = currentJobs && JSON.parse(currentJobs);
-        let upcomingInterviewsSection;
+        // let currentJobs = sessionStorage.getItem('currentJobs');
 
-        if (currentJobs) {
+        // let upcomingInterviewsSection;
+        // if (currentJobs) {
+        //     currentJobs = currentJobs && JSON.parse(currentJobs);
+        //     const upcomingInterviews = currentJobs
+        //         .filter(job => dateFns.parse(job.interview_date) >= today && dateFns.parse(job.interview_date) <= dateFns.addDays(today, 7))
+        //     ;
 
-            const upcomingInterviews = currentJobs
-                .filter(job => dateFns.parse(job.interview_date) >= today && dateFns.parse(job.interview_date) <= dateFns.addDays(today, 7))
-            ;
-
-            upcomingInterviewsSection = upcomingInterviews.length !== 0
-                ?   <UpcomingInterviews
-                        today={today}
-                    />
-                :   ''
-            ;
-        }
+        //     upcomingInterviewsSection = upcomingInterviews.length !== 0
+        //         ?   <UpcomingInterviews
+        //                 today={today}
+        //             />
+        //         :   ''
+        //     ;
+        // }
 
         return (
             <div className="UserDashboard_main">
@@ -78,7 +76,24 @@ export default class UserDashboard extends Component {
                         <FontAwesomeIcon icon={faPlusSquare} />
                 </button>
                 <div className="UserDashboard_flex_container">
-                    {upcomingInterviewsSection}
+                    <section className="UserDashboard_upcoming">
+                        <h2 className="Upcoming_title">Upcoming Interviews</h2>
+                        <UpcomingInterviews
+                            today={today}
+                        />
+                    </section>
+                    <section className="UserDashboard_applied">
+                        <h2 className="UserDashboard_applied_title">Applied</h2>
+                        <AppliedJobs />
+                    </section>
+                    <section className="UserDashboard_phone">
+                        <h2 className="UserDashboard_phone_title">Phone</h2>
+                        <PhoneInterviews />
+                    </section>
+                    <section className="UserDashboard_technical">
+                        <h2 className="UserDashboard_technical_title">Technical</h2>
+                        <TechnicalInterviews />
+                    </section>
                 </div>
                 <AddJobModal
                     showModal={this.state.showAddJobModal}

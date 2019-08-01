@@ -25,7 +25,7 @@ class InterviewNode extends Component {
                 throw new Error(res.statusText);
             }
             this.context.deleteJob(id);
-            // this.props.history.push('/dashboard');
+            this.props.history.push('/dashboard'); // look into this
         })
         .catch(error =>
             console.error(error)
@@ -33,7 +33,13 @@ class InterviewNode extends Component {
     }
 
     render() {
-        const { interview } = this.props;
+        const { job, applied, interview } = this.props;
+        const jobStatus = interview 
+            ? <p>{`Interview on ${dateFns.format(interview, 'MMMM Do')}`}</p>
+            : applied
+                ? <p>{`Applied on ${dateFns.format(applied, 'MMMM Do')}`}</p>
+                : ''
+        ;
 
         return (
             <div className="User_upcoming_interview">
@@ -43,9 +49,10 @@ class InterviewNode extends Component {
                     onClick={this.handleDeleteJobNode}>
                         <FontAwesomeIcon icon={faTrashAlt} />
                 </button>
-                <h3>{interview.company}</h3>
-                <p>{interview.position}</p>
-                <p>{dateFns.format(interview.interview_date, 'MMMM Do')}</p>
+                <h3>{job.company}</h3>
+                <p>{job.position}</p>
+                {jobStatus}
+                {/* <p>{dateFns.format(job.interview_date, 'MMMM Do')}</p> */}
             </div>   
         );
     }

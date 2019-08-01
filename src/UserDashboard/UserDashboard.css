@@ -18,3 +18,12 @@
 .UserDashboard_add_job:hover {
     cursor: pointer;
 }
+
+.UserDashboard_applied_title, .UserDashboard_phone_title, .UserDashboard_technical_title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.UserDashboard_upcoming, .UserDashboard_applied, .UserDashboard_phone, .UserDashboard_technical {
+    margin-bottom: 50px;
+}

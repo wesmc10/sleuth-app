@@ -13,17 +13,20 @@ export default function UpcomingInterviews(props) {
         .sort((a, b) => (dateFns.parse(a.interview_date) < dateFns.parse(b.interview_date)) ? -1 : 1)
     ;
     
-    upcomingInterviews = upcomingInterviews.map(interview => 
+    upcomingInterviews = upcomingInterviews.map(job => 
         <InterviewNode
-            interview={interview}
-            key={interview.id}
+            job={job}
+            key={job.id}
+            interview={job.interview_date}
         />  
     );
 
     return (
-        <section className="UserDashboard_upcoming">
-            <h2 className="Upcoming_title">Upcoming Interviews</h2>
+        // <section className="UserDashboard_upcoming">
+        //     <h2 className="Upcoming_title">Upcoming Interviews</h2>
+        <div className="Upcoming_jobs">
             {upcomingInterviews}
-        </section>
+        </div>
+        // </section>
     );
 }

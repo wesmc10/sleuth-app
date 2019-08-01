@@ -4,6 +4,7 @@
     border-radius: 25px;
     margin-bottom: 10px;
     position: relative;
+    width: 280px;
 }
 
 .User_upcoming_interview:hover {
@@ -16,7 +17,7 @@
 
 .Job_delete_button {
     position: absolute;
-    top: 10px;
+    top: 15px;
     right: 20px;
     font-size: 18px;
     background-color: white;
