@@ -11,8 +11,9 @@ import { withRouter } from 'react-router-dom';
 class InterviewNode extends Component {
     static contextType = SleuthContext;
 
-    handleDeleteJobNode = () => {
-        const { id } = this.props.interview;
+    handleDeleteJobNode = (e) => {
+        e.preventDefault();
+        const { id } = this.props.job;
 
         fetch(`${config.API_ENDPOINT}/jobs/${id}`, {
             method: 'DELETE',
@@ -22,14 +23,13 @@ class InterviewNode extends Component {
         })
         .then(res => {
             if (!res.ok) {
-                throw new Error(res.statusText);
+                return res.json().then(e => Promise.reject(e));
             }
-            this.context.deleteJob(id);
-            this.props.history.push('/dashboard'); // look into this
         })
-        .catch(error =>
-            console.error(error)
-        );
+        .then(noContent => {
+            this.context.deleteJob(id);
+        })
+        .catch(error => console.error(error));
     }
 
     render() {
@@ -52,7 +52,6 @@ class InterviewNode extends Component {
                 <h3>{job.company}</h3>
                 <p>{job.position}</p>
                 {jobStatus}
-                {/* <p>{dateFns.format(job.interview_date, 'MMMM Do')}</p> */}
             </div>   
         );
     }

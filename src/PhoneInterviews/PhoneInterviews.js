@@ -17,12 +17,13 @@ export default function PhoneInterviews() {
         if (!phoneInterviews) {
             phoneInterviews = 'No phone interviews are currently scheduled';
         } else {
-            phoneInterviews = phoneInterviews.map(job => 
-                <InterviewNode
-                    job={job}
-                    key={job.id}
-                    interview={job.interview_date}
-                />
+            phoneInterviews = phoneInterviews.map(job =>
+                <li key={job.id}>
+                    <InterviewNode
+                        job={job}
+                        interview={job.interview_date}
+                    />
+                </li>
             );
         }
     }

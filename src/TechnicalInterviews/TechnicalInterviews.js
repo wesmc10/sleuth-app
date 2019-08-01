@@ -17,12 +17,13 @@ export default function TechnicalInterviews() {
         if (technicalInterviews.length === 0) {
             technicalInterviews = 'No technical interviews are currently scheduled';
         } else {
-            technicalInterviews = technicalInterviews.map(job => 
-                <InterviewNode
-                    job={job}
-                    key={job.id}
-                    interview={job.interview_date}
-                />
+            technicalInterviews = technicalInterviews.map(job =>
+                <li key={job.id}>
+                    <InterviewNode
+                        job={job}
+                        interview={job.interview_date}
+                    />
+                </li>
             );
         }
     }

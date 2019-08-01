@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 import AddJobModal from '../AddJobModal/AddJobModal';
 import UpcomingInterviews from '../UpcomingInterviews/UpcomingInterviews';
-// import dateFns from 'date-fns';
 import AppliedJobs from '../AppliedJobs/AppliedJobs';
 import PhoneInterviews from '../PhoneInterviews/PhoneInterviews';
 import TechnicalInterviews from '../TechnicalInterviews/TechnicalInterviews';
@@ -46,22 +45,6 @@ export default class UserDashboard extends Component {
 
     render() {
         const { today, error } = this.state;
-        // let currentJobs = sessionStorage.getItem('currentJobs');
-
-        // let upcomingInterviewsSection;
-        // if (currentJobs) {
-        //     currentJobs = currentJobs && JSON.parse(currentJobs);
-        //     const upcomingInterviews = currentJobs
-        //         .filter(job => dateFns.parse(job.interview_date) >= today && dateFns.parse(job.interview_date) <= dateFns.addDays(today, 7))
-        //     ;
-
-        //     upcomingInterviewsSection = upcomingInterviews.length !== 0
-        //         ?   <UpcomingInterviews
-        //                 today={today}
-        //             />
-        //         :   ''
-        //     ;
-        // }
 
         return (
             <div className="UserDashboard_main">

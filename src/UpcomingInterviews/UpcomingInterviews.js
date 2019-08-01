@@ -8,25 +8,27 @@ export default function UpcomingInterviews(props) {
     let currentJobs = sessionStorage.getItem('currentJobs');
     currentJobs = currentJobs && JSON.parse(currentJobs);
 
-    let upcomingInterviews = currentJobs
-        .filter(job => dateFns.parse(job.interview_date) >= today && dateFns.parse(job.interview_date) <= dateFns.addDays(today, 7))
-        .sort((a, b) => (dateFns.parse(a.interview_date) < dateFns.parse(b.interview_date)) ? -1 : 1)
-    ;
-    
-    upcomingInterviews = upcomingInterviews.map(job => 
-        <InterviewNode
-            job={job}
-            key={job.id}
-            interview={job.interview_date}
-        />  
-    );
+    let upcomingInterviews;
+    if (currentJobs) {
+        upcomingInterviews = currentJobs
+            .filter(job => dateFns.parse(job.interview_date) > dateFns.subDays(today, 1) 
+                && dateFns.parse(job.interview_date) <= dateFns.addDays(today, 7))
+            .sort((a, b) => (dateFns.parse(a.interview_date) < dateFns.parse(b.interview_date)) ? -1 : 1)
+        ;
+        
+        upcomingInterviews = upcomingInterviews.map(job =>
+            <li key={job.id}>
+                <InterviewNode
+                    job={job}
+                    interview={job.interview_date}
+                />
+            </li>
+        );
+    }
 
     return (
-        // <section className="UserDashboard_upcoming">
-        //     <h2 className="Upcoming_title">Upcoming Interviews</h2>
         <div className="Upcoming_jobs">
             {upcomingInterviews}
         </div>
-        // </section>
     );
 }

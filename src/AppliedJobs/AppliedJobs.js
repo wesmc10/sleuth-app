@@ -14,12 +14,13 @@ export default function AppliedJobs() {
             .sort((a, b) => (dateFns.parse(a.date_applied) < dateFns.parse(b.date_applied)) ? 1 : -1)
         ;
         
-        appliedJobs = appliedJobs.map(job => 
-            <InterviewNode
-                job={job}
-                key={job.id}
-                applied={job.date_applied}
-            />
+        appliedJobs = appliedJobs.map(job =>
+            <li key={job.id}>
+                <InterviewNode
+                    job={job}
+                    applied={job.date_applied}
+                />
+            </li>
         );
     }
 
