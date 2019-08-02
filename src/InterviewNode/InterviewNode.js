@@ -39,6 +39,9 @@ class InterviewNode extends Component {
         })
         .then(noContent => {
             this.context.deleteJob(id);
+            if (this.props.deleteJob) {
+                this.props.deleteJob(id);
+            }
             this.props.history.push('dashboard');
         })
         .catch(error => console.error(error));
@@ -49,18 +52,6 @@ class InterviewNode extends Component {
         this.props.displayModal('showEditJobModal', 'edit-job');
         this.props.history.push('/dashboard/edit-job');
     }
-
-    // handleClickJobNode = () => {
-    //     this.context.addClickedJob(this.props.job);
-    //     this.props.displayModal('showJobModal', 'job');
-    //     this.props.history.push('/dashboard/edit-job');
-    // }
-
-    // handleClick = (key, route) => {
-    //     this.context.addClickedJob(this.props.job);
-    //     this.props.displayModal(key, route);
-    //     this.props.history.push(`/dashboard/${route}`)
-    // }
 
     render() {
         const { job, applied, interview } = this.props;

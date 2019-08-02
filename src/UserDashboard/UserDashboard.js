@@ -82,6 +82,13 @@ export default class UserDashboard extends Component {
         });
     }
 
+    handleDeleteAMatchingJob = (jobId) => {
+        const matchingJobs = this.state.matchingJobs.filter(job => job.id !== jobId);
+        this.setState({
+            matchingJobs
+        });
+    }
+
     render() {
         const { today, showAddJobModal, showEditJobModal, showJobModal, searchValue, matchingJobs, error } = this.state;
         const renderAddJobModal = showAddJobModal
@@ -204,6 +211,7 @@ export default class UserDashboard extends Component {
                             <h2 className="Upcoming_title">Search Results</h2>
                             <DashBoardSearchResults
                                 searchResults={matchingJobs}
+                                deleteJob={this.handleDeleteAMatchingJob}
                                 displayModal={this.handleShowModal}
                             />
                         </section>

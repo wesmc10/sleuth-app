@@ -1,6 +1,5 @@
 import React from 'react';
 import './DashBoardSearchResults.css';
-import dateFns from 'date-fns';
 import InterviewNode from '../InterviewNode/InterviewNode';
 
 export default function DashBoardSearchResults(props) {
@@ -21,6 +20,7 @@ export default function DashBoardSearchResults(props) {
                     <InterviewNode
                         job={job}
                         applied={job.date_applied}
+                        deleteJob={props.deleteJob}
                         displayModal={props.displayModal}
                     />
                 </li>
