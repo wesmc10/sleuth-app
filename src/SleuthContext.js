@@ -8,6 +8,7 @@ const SleuthContext = React.createContext({
     addCurrentJobs: () => {},
     addNewJob: () => {},
     deleteJob: () => {},
+    editJob: () => {},
     addClickedJob: () => {}
 });
 

@@ -80,6 +80,18 @@ export default class App extends Component {
 		}
 	}
 
+	handleEditJob = (editedJob) => {
+		const newJobs = this.state.currentJobs.map(job =>
+			job.id === editedJob.id
+				? editedJob
+				: job	
+		);
+		this.setState({
+			currentJobs: newJobs
+		});
+		this.setSessionStorage('currentJobs', this.state.currentJobs);
+	}
+
 	handleAddClickedJob = (job) => {
 		this.setState({
 			clickedJob: job
@@ -98,6 +110,7 @@ export default class App extends Component {
 			addCurrentJobs: this.handleAddCurrentJobs,
 			addNewJob: this.handleAddNewJob,
 			deleteJob: this.handleDeleteJob,
+			editJob: this.handleEditJob,
 			addClickedJob: this.handleAddClickedJob
 		};
 

@@ -82,6 +82,10 @@ export default class EditJobModal extends Component {
         this.setState({
             error: null
         });
+
+        let clickedJob = sessionStorage.getItem('clickedJob');
+        clickedJob = JSON.parse(clickedJob);
+
         const { 
             company,
             position, 
@@ -92,7 +96,7 @@ export default class EditJobModal extends Component {
             applicationStatus, 
             notes 
         } = this.state;
-        const newJob = {
+        const editedJob = {
             company,
             position,
             job_location: location,
@@ -100,24 +104,23 @@ export default class EditJobModal extends Component {
             date_applied: dateApplied,
             interview_date: interviewDate,
             application_status: applicationStatus,
-            notes,
-            user_id: this.context.currentUser.id
+            notes
         };
 
-        fetch(`${config.API_ENDPOINT}/jobs`, {
-            method: 'POST',
+        fetch(`${config.API_ENDPOINT}/jobs/${clickedJob.id}`, {
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${TokenService.getAuthToken()}` 
             },
-            body: JSON.stringify(newJob)
+            body: JSON.stringify(editedJob)
         })
-        .then(res =>
-            !res.ok
-                ? res.json().then(e => Promise.reject(e))
-                : res.json()    
-        )
         .then(res => {
+            if (!res.ok) {
+                return res.json().then(e => Promise.reject(e));
+            }   
+        })
+        .then(noContent => {
             this.setState({
                 company: '',
                 position: '',
@@ -128,10 +131,10 @@ export default class EditJobModal extends Component {
                 applicationStatus: '',
                 notes: ''
             });
-            if (res.interview_date === '1969-12-31') {
-                res.interview_date = null;
-            }
-            this.context.addNewJob(res);
+            this.context.editJob({
+                ...editedJob,
+                id: clickedJob.id
+            });
             this.props.closeModal();
         })
         .catch(res => {
@@ -295,7 +298,7 @@ export default class EditJobModal extends Component {
                                     onChange={this.handleNotesChange}
                                 />
 
-                                <button type="submit" className="EditJobModal_submit_button">Add Job</button>
+                                <button type="submit" className="EditJobModal_submit_button">Edit Job</button>
                             </section>
                         </fieldset>
                     </form>
