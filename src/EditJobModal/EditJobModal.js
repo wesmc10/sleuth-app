@@ -25,7 +25,7 @@ export default class EditJobModal extends Component {
         if (!TokenService.hasAuthToken()) {
             this.props.history.push('/');
         }
-        
+
         document.addEventListener('mousedown', this.handleClick);
 
         let clickedJob = sessionStorage.getItem('clickedJob');
@@ -34,11 +34,11 @@ export default class EditJobModal extends Component {
         this.setState({
             company: clickedJob ? clickedJob.company : '',
             position: clickedJob ? clickedJob.position : '',
-            location: clickedJob ? clickedJob.location : '',
+            location: clickedJob ? clickedJob.job_location : '',
             salary: clickedJob ? clickedJob.salary : '',
-            dateApplied: clickedJob ? clickedJob.dateApplied : '',
-            interviewDate: clickedJob ? clickedJob.interviewDate : '',
-            applicationStatus: clickedJob ? clickedJob.applicationStatus : '',
+            dateApplied: clickedJob ? clickedJob.date_applied : '',
+            interviewDate: clickedJob ? clickedJob.interview_date : '',
+            applicationStatus: clickedJob ? clickedJob.application_status : '',
             notes: clickedJob ? clickedJob.notes : ''
         });
     }
@@ -197,6 +197,7 @@ export default class EditJobModal extends Component {
             salary, 
             dateApplied, 
             interviewDate,
+            applicationStatus,
             notes, 
             error 
         } = this.state;
@@ -272,13 +273,16 @@ export default class EditJobModal extends Component {
                                     onChange={this.handleInterviewDateChange}
                                 />
                                 <label htmlFor="application_status">Application Status</label>
-                                <select id="application_status" onChange={this.handleApplicationStatusChange}>
-                                    <option value="Applied">Applied</option>
-                                    <option value="Phone">Phone</option>
-                                    <option value="Technical">Technical</option>
-                                    <option value="On-site">On-site</option>
-                                    <option value="Offer">Offer</option>
-                                    <option value="Rejected">Rejected</option>
+                                <select 
+                                    id="application_status" 
+                                    value={applicationStatus} 
+                                    onChange={this.handleApplicationStatusChange}>
+                                        <option value="Applied">Applied</option>
+                                        <option value="Phone">Phone</option>
+                                        <option value="Technical">Technical</option>
+                                        <option value="On-site">On-site</option>
+                                        <option value="Offer">Offer</option>
+                                        <option value="Rejected">Rejected</option>
                                 </select>
                                 <label htmlFor="notes">Notes</label>
                                 <textarea
