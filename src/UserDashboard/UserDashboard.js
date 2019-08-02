@@ -92,6 +92,26 @@ export default class UserDashboard extends Component {
         });
     }
 
+    handleAddMatchingJob = (newJob) => {
+        this.setState({
+            matchingJobs: [
+                ...this.state.matchingJobs,
+                newJob
+            ]
+        });
+    }
+
+    handleEditMatchingJob = (editedJob) => {
+        const newMatchingJobs = this.state.matchingJobs.map(job =>
+            job.id === editedJob.id
+                ? editedJob
+                : job
+        );
+        this.setState({
+            matchingJobs: newMatchingJobs
+        });
+    }
+
     handleDeleteAMatchingJob = (jobId) => {
         const matchingJobs = this.state.matchingJobs.filter(job => job.id !== jobId);
         this.setState({
@@ -105,6 +125,7 @@ export default class UserDashboard extends Component {
             ?   <AddJobModal
                     showModal={this.state.showAddJobModal}
                     closeModal={this.handleCloseModal}
+                    addJob={this.handleAddMatchingJob}
                 />
             :   ''
         ;
@@ -112,6 +133,7 @@ export default class UserDashboard extends Component {
             ?   <EditJobModal
                     showModal={this.state.showEditJobModal}
                     closeModal={this.handleCloseModal}
+                    editJob={this.handleEditMatchingJob}
                 />
             :   ''
         ;

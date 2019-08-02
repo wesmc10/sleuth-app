@@ -143,6 +143,10 @@ class EditJobModal extends Component {
                 ...editedJob,
                 id: clickedJob.id
             });
+            this.props.editJob({
+                ...editedJob,
+                id: clickedJob.id
+            });
             this.props.closeModal('showEditJobModal');
         })
         .catch(res => {

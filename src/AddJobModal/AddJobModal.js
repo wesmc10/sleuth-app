@@ -114,6 +114,7 @@ export default class AddJobModal extends Component {
                 res.interview_date = null;
             }
             this.context.addNewJob(res);
+            this.props.addJob(res);
             this.props.closeModal('showAddJobModal');
         })
         .catch(res => {
