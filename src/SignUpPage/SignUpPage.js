@@ -146,7 +146,7 @@ export default class SignUpPage extends Component {
                     </fieldset>
                 </form>
 
-                <p className="Account_question">Don't have an account?<Link to='/login' className="LogIn_link">Log In</Link></p>
+                <p className="Account_question">Already have an account?<Link to='/login' className="LogIn_link">Log In</Link></p>
             </div>
         );
     }

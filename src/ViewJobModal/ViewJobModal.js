@@ -56,10 +56,11 @@ class ViewJobModal extends Component {
                         <p>{clickedJob && clickedJob.company}</p>
                         <p>{clickedJob && clickedJob.position}</p>
                         <p>{clickedJob && clickedJob.job_location}</p>
-                        <p>{clickedJob && clickedJob.salary}</p>
-                        <p>{clickedJob && clickedJob.date_applied}</p>
-                        <p>{clickedJob && clickedJob.interview_date}</p>
-                        <p>{clickedJob && clickedJob.notes}</p>
+                        <p>{(clickedJob && clickedJob.salary) ? `Salary: ${clickedJob.salary}` : ''}</p>
+                        <p>{`Date applied: ${clickedJob && clickedJob.date_applied}`}</p>
+                        <p>{(clickedJob && clickedJob.interview_date) ? `Interview date: ${clickedJob.interview_date}` : ''}</p>
+                        <p>{(clickedJob && clickedJob.application_status) ? `Application status: ${clickedJob.application_status}` : ''}</p>
+                        <p>{(clickedJob && clickedJob.notes) ? `Notes: ${clickedJob.notes}` : ''}</p>
                     </section>
                 </section>
             </div>
