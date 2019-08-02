@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import './AddJobModal.css';
+import './EditJobModal.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import config from '../config';
 import SleuthContext from '../SleuthContext';
 import TokenService from '../token-service';
 
-export default class AddJobModal extends Component {
+export default class EditJobModal extends Component {
     state = {
         company: '',
         position: '',
@@ -14,7 +14,7 @@ export default class AddJobModal extends Component {
         salary: '',
         dateApplied: '',
         interviewDate: '',
-        applicationStatus: 'Applied',
+        applicationStatus: '',
         notes: '',
         error: null
     };
@@ -22,7 +22,25 @@ export default class AddJobModal extends Component {
     static contextType = SleuthContext;
 
     componentDidMount() {
+        if (!TokenService.hasAuthToken()) {
+            this.props.history.push('/');
+        }
+        
         document.addEventListener('mousedown', this.handleClick);
+
+        let clickedJob = sessionStorage.getItem('clickedJob');
+        clickedJob = JSON.parse(clickedJob);
+
+        this.setState({
+            company: clickedJob ? clickedJob.company : '',
+            position: clickedJob ? clickedJob.position : '',
+            location: clickedJob ? clickedJob.location : '',
+            salary: clickedJob ? clickedJob.salary : '',
+            dateApplied: clickedJob ? clickedJob.dateApplied : '',
+            interviewDate: clickedJob ? clickedJob.interviewDate : '',
+            applicationStatus: clickedJob ? clickedJob.applicationStatus : '',
+            notes: clickedJob ? clickedJob.notes : ''
+        });
     }
 
     componentWillUnmount() {
@@ -39,7 +57,7 @@ export default class AddJobModal extends Component {
                 salary: '',
                 dateApplied: '',
                 interviewDate: '',
-                applicationStatus: 'Applied',
+                applicationStatus: '',
                 notes: ''
             });
         }
@@ -54,7 +72,7 @@ export default class AddJobModal extends Component {
             salary: '',
             dateApplied: '',
             interviewDate: '',
-            applicationStatus: 'Applied',
+            applicationStatus: '',
             notes: ''
         });
     }
@@ -107,7 +125,7 @@ export default class AddJobModal extends Component {
                 salary: '',
                 dateApplied: '',
                 interviewDate: '',
-                applicationStatus: 'Applied',
+                applicationStatus: '',
                 notes: ''
             });
             if (res.interview_date === '1969-12-31') {
@@ -172,17 +190,26 @@ export default class AddJobModal extends Component {
     }
 
     render() {
-        const { error } = this.state;
+        const { 
+            company, 
+            position, 
+            location, 
+            salary, 
+            dateApplied, 
+            interviewDate,
+            notes, 
+            error 
+        } = this.state;
         const { showModal } = this.props;
         const showOrHideModal = showModal ? 'Modal display' : 'Modal hide';
 
         return (
             <div className={showOrHideModal}>
-                <section ref={node => this.node = node} className="AddJobModal_section">
-                    <form className="AddJobModal_form" onSubmit={this.handleFormSubmission}>
+                <section ref={node => this.node = node} className="EditJobModal_section">
+                    <form className="EditJobModal_form" onSubmit={this.handleFormSubmission}>
                         <fieldset>
-                            <section className="AddJobModal_add_job">
-                                <legend className="AddJobModal_title">Add a Job</legend>
+                            <section className="EditJobModal_add_job">
+                                <legend className="EditJobModal_title">Edit Job</legend>
                                 <button
                                     type="button"
                                     className="close_modal_button"
@@ -197,6 +224,7 @@ export default class AddJobModal extends Component {
                                     type="text"
                                     id="company"
                                     name="company"
+                                    value={company}
                                     required
                                     onChange={this.handleCompanyChange}
                                 />
@@ -205,6 +233,7 @@ export default class AddJobModal extends Component {
                                     type="text"
                                     id="position"
                                     name="position"
+                                    value={position}
                                     required
                                     onChange={this.handlePositionChange}
                                 />
@@ -213,6 +242,7 @@ export default class AddJobModal extends Component {
                                     type="text"
                                     id="location"
                                     name="location"
+                                    value={location}
                                     required
                                     onChange={this.handleLocationChange}
                                 />
@@ -221,6 +251,7 @@ export default class AddJobModal extends Component {
                                     type="text"
                                     id="salary"
                                     name="salary"
+                                    value={salary}
                                     onChange={this.handleSalaryChange}
                                 />
                                 <label htmlFor="date_applied">Date Applied</label>
@@ -228,6 +259,7 @@ export default class AddJobModal extends Component {
                                     type="date"
                                     id="date_applied"
                                     name="date_applied"
+                                    value={dateApplied}
                                     required
                                     onChange={this.handleDateAppliedChange}
                                 />
@@ -236,6 +268,7 @@ export default class AddJobModal extends Component {
                                     type="date"
                                     id="interview_date"
                                     name="interview_date"
+                                    value={interviewDate}
                                     onChange={this.handleInterviewDateChange}
                                 />
                                 <label htmlFor="application_status">Application Status</label>
@@ -252,12 +285,13 @@ export default class AddJobModal extends Component {
                                     type="text"
                                     id="notes"
                                     name="notes"
+                                    value={notes}
                                     cols="30"
                                     rows="5"
                                     onChange={this.handleNotesChange}
                                 />
 
-                                <button type="submit" className="AddJobModal_submit_button">Add Job</button>
+                                <button type="submit" className="EditJobModal_submit_button">Add Job</button>
                             </section>
                         </fieldset>
                     </form>

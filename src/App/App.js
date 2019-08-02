@@ -9,11 +9,13 @@ import UserDashBoard from '../UserDashboard/UserDashboard';
 import SleuthContext from '../SleuthContext';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import AddJobModal from '../AddJobModal/AddJobModal';
+import EditJobModal from '../EditJobModal/EditJobModal';
 
 export default class App extends Component {
 	state = {
 		currentUser: {},
 		currentJobs: [],
+		clickedJob: {},
 		error: null
 	};
 
@@ -22,7 +24,7 @@ export default class App extends Component {
 	}
 
 	hydrateAppStateWithSessionStorage() {
-		for (const stateKey of ['currentUser', 'currentJobs']) {
+		for (const stateKey of ['currentUser', 'currentJobs', 'clickedJob']) {
 			if (sessionStorage.hasOwnProperty(stateKey)) {
 				let value = sessionStorage.getItem(stateKey);
 				try {
@@ -78,16 +80,25 @@ export default class App extends Component {
 		}
 	}
 
+	handleAddClickedJob = (job) => {
+		this.setState({
+			clickedJob: job
+		});
+		this.setSessionStorage('clickedJob', job);
+	}
+
     render() {
 		const { error } = this.state;
 
 		const contextValue = {
 			currentUser: this.state.currentUser,
 			currentJobs: this.state.currentJobs,
+			clickedJob: this.state.clickedJob,
 			addCurrentUser: this.handleAddCurrentUser,
 			addCurrentJobs: this.handleAddCurrentJobs,
 			addNewJob: this.handleAddNewJob,
-			deleteJob: this.handleDeleteJob
+			deleteJob: this.handleDeleteJob,
+			addClickedJob: this.handleAddClickedJob
 		};
 
 		return (
@@ -119,6 +130,10 @@ export default class App extends Component {
 								<Route
 									path='/dashboard/add-job'
 									component={AddJobModal}
+								/>
+								<Route
+									path='/dashboard/edit-job'
+									component={EditJobModal}
 								/>
 								<Route
 									component={PageNotFound}

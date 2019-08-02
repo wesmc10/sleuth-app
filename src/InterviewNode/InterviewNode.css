@@ -11,7 +11,8 @@
     cursor: pointer;
 }
 
-.User_upcoming_interview:hover .Job_delete_button {
+.User_upcoming_interview:hover .Job_delete_button,
+.User_upcoming_interview:hover .Job_edit_button {
     display: inline;
 }
 
@@ -26,5 +27,19 @@
 }
 
 .Job_delete_button:hover {
+    cursor: pointer;
+}
+
+.Job_edit_button {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    font-size: 18px;
+    background-color: white;
+    border: none;
+    display: none;
+}
+
+.Job_edit_button:hover {
     cursor: pointer;
 }

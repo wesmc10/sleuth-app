@@ -1,0 +1,28 @@
+.EditJobModal_section {
+    position: fixed;
+    background-color: white;
+    width: 80%;
+    max-width: 1000px;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.EditJobModal_add_job {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: baseline;
+    position: relative;
+}
+
+.EditJobModal_title {
+    font-size: 22px;
+}
+
+.EditJobModal_submit_button:hover {
+    cursor: pointer;
+}

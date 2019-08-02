@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './InterviewNode.css';
 import dateFns from 'date-fns';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons';
 import config from '../config';
 import TokenService from '../token-service';
 import SleuthContext from '../SleuthContext';
@@ -11,8 +11,7 @@ import { withRouter } from 'react-router-dom';
 class InterviewNode extends Component {
     static contextType = SleuthContext;
 
-    handleDeleteJobNode = (e) => {
-        e.preventDefault();
+    handleDeleteJobNode = () => {
         const { id } = this.props.job;
 
         fetch(`${config.API_ENDPOINT}/jobs/${id}`, {
@@ -33,6 +32,16 @@ class InterviewNode extends Component {
         .catch(error => console.error(error));
     }
 
+    handleClickEdit = () => {
+        this.context.addClickedJob(this.props.job);
+        this.props.editModal();
+        this.props.history.push('/dashboard/edit-job');
+    }
+
+    handleClickJobNode = () => {
+        this.context.addClickedJob(this.props.job);
+    }
+
     render() {
         const { job, applied, interview } = this.props;
         const jobStatus = interview 
@@ -43,12 +52,18 @@ class InterviewNode extends Component {
         ;
 
         return (
-            <div className="User_upcoming_interview">
+            <div className="User_upcoming_interview" onClick={this.handleClickJobNode}>
                 <button 
                     type="button" 
                     className="Job_delete_button"
                     onClick={this.handleDeleteJobNode}>
                         <FontAwesomeIcon icon={faTrashAlt} />
+                </button>
+                <button
+                    type="button"
+                    className="Job_edit_button"
+                    onClick={this.handleClickEdit}>
+                        <FontAwesomeIcon icon={faEdit} />
                 </button>
                 <h3>{job.company}</h3>
                 <p>{job.position}</p>

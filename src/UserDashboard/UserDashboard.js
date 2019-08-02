@@ -12,10 +12,12 @@ import TechnicalInterviews from '../TechnicalInterviews/TechnicalInterviews';
 import OnSiteInterviews from '../OnSiteInterviews/OnSiteInterviews';
 import JobOffers from '../JobOffers/JobOffers';
 import JobsRejected from '../JobsRejected/JobsRejected';
+import EditJobModal from '../EditJobModal/EditJobModal';
 
 export default class UserDashboard extends Component {
     state = {
         showAddJobModal: false,
+        showEditJobModal: false,
         today: new Date(),
         error: null
     };
@@ -30,6 +32,12 @@ export default class UserDashboard extends Component {
                 showAddJobModal: true
             });
         }
+
+        if (this.props.location.pathname === '/dashboard/edit-job') {
+            this.setState({
+                showEditJobModal: true
+            });
+        }
     }
 
     handleClickAddJobButton = () => {
@@ -39,15 +47,43 @@ export default class UserDashboard extends Component {
         });
     }
 
-    handleCloseModal = () => {
+    handleCloseAddJobModal = () => {
         this.props.history.push('/dashboard');
         this.setState({
             showAddJobModal: false
         });
     }
 
+    handleClickEditJobButton = () => {
+        this.props.history.push('/dashboard/edit-job');
+        this.setState({
+            showEditJobModal: true
+        });
+    }
+
+    handleCloseEditJobModal = () => {
+        this.props.history.push('/dashboard');
+        this.setState({
+            showEditJobModal: false
+        });
+    }
+
     render() {
-        const { today, error } = this.state;
+        const { today, showAddJobModal, showEditJobModal, error } = this.state;
+        const renderAddJobModal = showAddJobModal
+            ?   <AddJobModal
+                    showModal={this.state.showAddJobModal}
+                    closeModal={this.handleCloseAddJobModal}
+                />
+            :   ''
+        ;
+        const renderEditJobModal = showEditJobModal
+            ?   <EditJobModal
+                    showModal={this.state.showEditJobModal}
+                    closeModal={this.handleCloseEditJobModal}
+                />
+            :   ''
+        ;
 
         return (
             <div className="UserDashboard_main">
@@ -66,37 +102,48 @@ export default class UserDashboard extends Component {
                         <h2 className="Upcoming_title">Upcoming Interviews</h2>
                         <UpcomingInterviews
                             today={today}
+                            editModal={this.handleClickEditJobButton}
                         />
                     </section>
                     <section className="UserDashboard_applied">
                         <h2 className="UserDashboard_applied_title">Applied</h2>
-                        <AppliedJobs />
+                        <AppliedJobs
+                            editModal={this.handleClickEditJobButton}
+                        />
                     </section>
                     <section className="UserDashboard_phone">
                         <h2 className="UserDashboard_phone_title">Phone</h2>
-                        <PhoneInterviews />
+                        <PhoneInterviews
+                            editModal={this.handleClickEditJobButton}
+                        />
                     </section>
                     <section className="UserDashboard_technical">
                         <h2 className="UserDashboard_technical_title">Technical</h2>
-                        <TechnicalInterviews />
+                        <TechnicalInterviews
+                            editModal={this.handleClickEditJobButton}
+                        />
                     </section>
                     <section className="UserDashboard_on_site">
                         <h2 className="UserDashboard_on_site_title">On-site</h2>
-                        <OnSiteInterviews />
+                        <OnSiteInterviews
+                            editModal={this.handleClickEditJobButton}
+                        />
                     </section>
                     <section className="UserDashboard_offers">
                         <h2 className="UserDashboard_offers_title">Offers</h2>
-                        <JobOffers />
+                        <JobOffers
+                            editModal={this.handleClickEditJobButton}
+                        />
                     </section>
                     <section className="UserDashboard_rejected">
                         <h2 className="UserDashboard_rejected_title">Rejected</h2>
-                        <JobsRejected />
+                        <JobsRejected
+                            editModal={this.handleClickEditJobButton}
+                        />
                     </section>
                 </div>
-                <AddJobModal
-                    showModal={this.state.showAddJobModal}
-                    closeModal={this.handleCloseModal}
-                />
+                {renderAddJobModal}
+                {renderEditJobModal}
             </div>
         )
     }

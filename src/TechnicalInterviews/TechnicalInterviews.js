@@ -3,11 +3,11 @@ import './TechnicalInterviews.css';
 import dateFns from 'date-fns';
 import InterviewNode from '../InterviewNode/InterviewNode';
 
-export default function TechnicalInterviews() {
+export default function TechnicalInterviews(props) {
     let currentJobs = sessionStorage.getItem('currentJobs');
     currentJobs = currentJobs && JSON.parse(currentJobs);
 
-    let technicalInterviews;
+    let technicalInterviews, numberOfTechnicalInterviews;
     if (currentJobs) {
         technicalInterviews = currentJobs
             .filter(job => job.application_status === 'Technical')
@@ -15,23 +15,30 @@ export default function TechnicalInterviews() {
         ;
 
         if (technicalInterviews.length === 0) {
+            numberOfTechnicalInterviews = 0;
             technicalInterviews = 'No technical interviews are currently scheduled';
         } else {
+            numberOfTechnicalInterviews = technicalInterviews.length;
             technicalInterviews = technicalInterviews.map(job =>
                 <li key={job.id}>
                     <InterviewNode
                         job={job}
                         interview={job.interview_date}
+                        editModal={props.editModal}
                     />
                 </li>
             );
         }
     } else {
+        numberOfTechnicalInterviews = 0;
         technicalInterviews = 'No technical interviews are currently scheduled';
     }
 
     return (
         <div className="Technical_interviews">
+            <div className="Number_of_jobs">
+                {numberOfTechnicalInterviews}
+            </div>
             {technicalInterviews}
         </div>
     );

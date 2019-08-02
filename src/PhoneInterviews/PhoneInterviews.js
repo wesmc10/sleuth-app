@@ -3,11 +3,11 @@ import './PhoneInterviews.css';
 import dateFns from 'date-fns';
 import InterviewNode from '../InterviewNode/InterviewNode';
 
-export default function PhoneInterviews() {
+export default function PhoneInterviews(props) {
     let currentJobs = sessionStorage.getItem('currentJobs');
     currentJobs = currentJobs && JSON.parse(currentJobs);
 
-    let phoneInterviews;
+    let phoneInterviews, numberOfPhoneInterviews;
     if (currentJobs) {
         phoneInterviews = currentJobs
             .filter(job => job.application_status === 'Phone')
@@ -15,23 +15,30 @@ export default function PhoneInterviews() {
         ;
 
         if (phoneInterviews.length === 0) {
+            numberOfPhoneInterviews = 0;
             phoneInterviews = 'No phone interviews are currently scheduled';
         } else {
+            numberOfPhoneInterviews = phoneInterviews.length;
             phoneInterviews = phoneInterviews.map(job =>
                 <li key={job.id}>
                     <InterviewNode
                         job={job}
                         interview={job.interview_date}
+                        editModal={props.editModal}
                     />
                 </li>
             );
         }
     } else {
+        numberOfPhoneInterviews = 0;
         phoneInterviews = 'No phone interviews are currently scheduled';
     }
 
     return (
         <div className="Phone_interviews">
+            <div className="Number_of_jobs">
+                {numberOfPhoneInterviews}
+            </div>
             {phoneInterviews}
         </div>
     );

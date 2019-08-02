@@ -8,7 +8,7 @@ export default function UpcomingInterviews(props) {
     let currentJobs = sessionStorage.getItem('currentJobs');
     currentJobs = currentJobs && JSON.parse(currentJobs);
 
-    let upcomingInterviews;
+    let upcomingInterviews, numberOfUpcomingInterviews;
     if (currentJobs) {
         upcomingInterviews = currentJobs
             .filter(job => dateFns.parse(job.interview_date) > dateFns.subDays(today, 1) 
@@ -17,23 +17,30 @@ export default function UpcomingInterviews(props) {
         ;
         
         if (upcomingInterviews.length === 0) {
+            numberOfUpcomingInterviews = 0;
             upcomingInterviews = 'No interviews scheduled within the next week';
         } else {
+            numberOfUpcomingInterviews = upcomingInterviews.length;
             upcomingInterviews = upcomingInterviews.map(job =>
                 <li key={job.id}>
                     <InterviewNode
                         job={job}
                         interview={job.interview_date}
+                        editModal={props.editModal}
                     />
                 </li>
             );
         }
     } else {
+        numberOfUpcomingInterviews = 0;
         upcomingInterviews = 'No interviews scheduled within the next week';
     }
 
     return (
         <div className="Upcoming_jobs">
+            <div className="Number_of_jobs">
+                {numberOfUpcomingInterviews}
+            </div>
             {upcomingInterviews}
         </div>
     );
