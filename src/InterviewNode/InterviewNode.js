@@ -11,6 +11,23 @@ import { withRouter } from 'react-router-dom';
 class InterviewNode extends Component {
     static contextType = SleuthContext;
 
+    componentDidMount() {
+        document.addEventListener('mousedown', this.handleClickJobNode);
+    }
+
+
+
+    handleClickJobNode = (e) => {
+        if (this.node.contains(e.target) && !this.button.contains(e.target)) {
+            console.log('true');
+            // this.context.addClickedJob(this.props.job);
+            // this.props.displayModal('showJobModal', 'job');
+            // this.props.history.push('/dashboard/edit-job');
+        } else {
+            console.log('false');
+        }
+    }
+
     handleDeleteJobNode = () => {
         const { id } = this.props.job;
 
@@ -34,13 +51,21 @@ class InterviewNode extends Component {
 
     handleClickEdit = () => {
         this.context.addClickedJob(this.props.job);
-        this.props.editModal();
+        this.props.displayModal('showEditJobModal', 'edit-job');
         this.props.history.push('/dashboard/edit-job');
     }
 
-    handleClickJobNode = () => {
-        this.context.addClickedJob(this.props.job);
-    }
+    // handleClickJobNode = () => {
+    //     this.context.addClickedJob(this.props.job);
+    //     this.props.displayModal('showJobModal', 'job');
+    //     this.props.history.push('/dashboard/edit-job');
+    // }
+
+    // handleClick = (key, route) => {
+    //     this.context.addClickedJob(this.props.job);
+    //     this.props.displayModal(key, route);
+    //     this.props.history.push(`/dashboard/${route}`)
+    // }
 
     render() {
         const { job, applied, interview } = this.props;
@@ -52,7 +77,7 @@ class InterviewNode extends Component {
         ;
 
         return (
-            <div className="User_upcoming_interview" onClick={this.handleClickJobNode}>
+            <div ref={node => this.node = node} className="User_upcoming_interview" onClick={this.handleClickJobNode}>
                 <button 
                     type="button" 
                     className="Job_delete_button"
@@ -60,6 +85,7 @@ class InterviewNode extends Component {
                         <FontAwesomeIcon icon={faTrashAlt} />
                 </button>
                 <button
+                    ref={button => this.button = button}
                     type="button"
                     className="Job_edit_button"
                     onClick={this.handleClickEdit}>

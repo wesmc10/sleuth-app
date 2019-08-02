@@ -24,7 +24,7 @@ export default function JobsRejected(props) {
                     <InterviewNode
                         job={job}
                         interview={job.interview_date}
-                        editModal={props.editModal}
+                        displayModal={props.displayModal}
                     />
                 </li>
             );

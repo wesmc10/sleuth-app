@@ -24,7 +24,7 @@ export default function AppliedJobs(props) {
                     <InterviewNode
                         job={job}
                         applied={job.date_applied}
-                        editModal={props.editModal}
+                        displayModal={props.displayModal}
                     />
                 </li>
             );

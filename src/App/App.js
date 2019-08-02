@@ -10,6 +10,7 @@ import SleuthContext from '../SleuthContext';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import AddJobModal from '../AddJobModal/AddJobModal';
 import EditJobModal from '../EditJobModal/EditJobModal';
+import ViewJobModal from '../ViewJobModal/ViewJobModal';
 
 export default class App extends Component {
 	state = {
@@ -147,6 +148,10 @@ export default class App extends Component {
 								<Route
 									path='/dashboard/edit-job'
 									component={EditJobModal}
+								/>
+								<Route
+									path='/dashboard/job'
+									component={ViewJobModal}
 								/>
 								<Route
 									component={PageNotFound}
