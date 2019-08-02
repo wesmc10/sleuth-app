@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './EditJobModal.css';
+import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import config from '../config';
 import SleuthContext from '../SleuthContext';
 import TokenService from '../token-service';
 
-export default class EditJobModal extends Component {
+class EditJobModal extends Component {
     state = {
         company: '',
         position: '',
@@ -26,10 +27,15 @@ export default class EditJobModal extends Component {
             this.props.history.push('/');
         }
 
-        document.addEventListener('mousedown', this.handleClick);
-
         let clickedJob = sessionStorage.getItem('clickedJob');
         clickedJob = JSON.parse(clickedJob);
+
+        if (Object.entries(clickedJob).length === 0) {
+            this.props.closeModal('showEditJobModal');
+            this.props.history.push('/dashboard');
+        }
+
+        document.addEventListener('mousedown', this.handleClick);
 
         this.setState({
             company: clickedJob ? clickedJob.company : '',
@@ -60,6 +66,7 @@ export default class EditJobModal extends Component {
                 notes: ''
             });
             this.props.closeModal('showEditJobModal');
+            this.context.addClickedJob({});
         }
     }
 
@@ -75,6 +82,7 @@ export default class EditJobModal extends Component {
             notes: ''
         });
         this.props.closeModal('showEditJobModal');
+        this.context.addClickedJob({});
     }
 
     handleFormSubmission = (e) => {
@@ -307,3 +315,5 @@ export default class EditJobModal extends Component {
         );
     }
 }
+
+export default withRouter(EditJobModal);

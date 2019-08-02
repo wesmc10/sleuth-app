@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
 import './ViewJobModal.css';
+import { withRouter } from 'react-router-dom';
 import SleuthContext from '../SleuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-export default class ViewJobModal extends Component {
+class ViewJobModal extends Component {
     static contextType = SleuthContext;
 
     componentDidMount() {
         document.addEventListener('mousedown', this.handleClick);
+
+        let clickedJob = sessionStorage.getItem('clickedJob');
+        clickedJob = JSON.parse(clickedJob);
+
+        if (Object.entries(clickedJob).length === 0) {
+            this.props.closeModal('showJobModal');
+            this.props.history.push('/dashboard');
+        }
     }
 
     componentWillUnmount() {
@@ -18,11 +27,13 @@ export default class ViewJobModal extends Component {
     handleClick = (e) => {
         if (!this.node.contains(e.target)) {
             this.props.closeModal('showJobModal');
+            this.context.addClickedJob({});
         }
     }
 
     handleClickCloseModal = () => {
         this.props.closeModal('showJobModal');
+        this.context.addClickedJob({});
     }
 
     render() {
@@ -55,3 +66,5 @@ export default class ViewJobModal extends Component {
         );
     }
 }
+
+export default withRouter(ViewJobModal);

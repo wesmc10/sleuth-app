@@ -19,7 +19,7 @@ class InterviewNode extends Component {
         if (this.node && this.node.contains(e.target) && !this.edit_button.contains(e.target) && !this.delete_button.contains(e.target)) {
             this.context.addClickedJob(this.props.job);
             this.props.displayModal('showJobModal', 'job');
-            this.props.history.push('/dashboard/edit-job');
+            this.props.history.push('/dashboard/job');
         }
     }
 
