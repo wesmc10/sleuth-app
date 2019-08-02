@@ -20,6 +20,7 @@ export default class UserDashboard extends Component {
         showAddJobModal: false,
         showEditJobModal: false,
         showJobModal: false,
+        searchValue: '',
         today: new Date(),
         error: null
     };
@@ -62,6 +63,12 @@ export default class UserDashboard extends Component {
         });
     }
 
+    handleChangeSearchValue = (e) => {
+        this.setState({
+            searchValue: e.target.value
+        });
+    }
+
     render() {
         const { today, showAddJobModal, showEditJobModal, showJobModal, error } = this.state;
         const renderAddJobModal = showAddJobModal
@@ -92,12 +99,22 @@ export default class UserDashboard extends Component {
                 <div role="alert">
 					{error && <p className="red">{error}</p>}
 				</div>
-                <button 
-                    type="button"
-                    className="UserDashboard_add_job"
-                    onClick={() => this.handleShowModal('showAddJobModal', 'add-job')}>
-                        <FontAwesomeIcon icon={faPlusSquare} />
-                </button>
+                <div className="UserDashboard_flex_header">
+                    <label htmlFor="UserDashboard_job_search">Search</label>
+                    <input
+                        type="text"
+                        id="UserDashboard_job_search"
+                        name="UserDashboard_job_search"
+                        placeholder="Facebook"
+                        onChange={this.handleChangeSearchValue}
+                    />
+                    <button 
+                        type="button"
+                        className="UserDashboard_add_job"
+                        onClick={() => this.handleShowModal('showAddJobModal', 'add-job')}>
+                            <FontAwesomeIcon icon={faPlusSquare} />
+                    </button>
+                </div>
                 <div className="UserDashboard_flex_container">
                     <section className="UserDashboard_upcoming">
                         <h2 className="Upcoming_title">Upcoming Interviews</h2>

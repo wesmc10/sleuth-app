@@ -16,7 +16,6 @@ export default function AppliedJobs(props) {
         
         if (appliedJobs.length === 0) {
             numberOfAppliedJobs = 0;
-            appliedJobs = 'Apply to a new job';
         } else {
             numberOfAppliedJobs = appliedJobs.length;
             appliedJobs = appliedJobs.map(job =>
@@ -31,7 +30,6 @@ export default function AppliedJobs(props) {
         }
     } else {
         numberOfAppliedJobs = 0;
-        appliedJobs = 'Apply to a new job';
     }
 
     return (

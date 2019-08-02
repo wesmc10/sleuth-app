@@ -16,7 +16,6 @@ export default function OnSiteInterviews(props) {
 
         if (onSiteInterviews.length === 0) {
             numberOfOnSiteInterviews = 0;
-            onSiteInterviews = 'No on-site interviews are currently scheduled';
         } else {
             numberOfOnSiteInterviews = onSiteInterviews.length;
             onSiteInterviews = onSiteInterviews.map(job =>
@@ -31,7 +30,6 @@ export default function OnSiteInterviews(props) {
         }
     } else {
         numberOfOnSiteInterviews = 0;
-        onSiteInterviews = 'No on-site interviews are currently scheduled';
     }
 
     return (

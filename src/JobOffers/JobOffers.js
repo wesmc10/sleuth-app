@@ -16,7 +16,6 @@ export default function JobOffers(props) {
 
         if (jobOffers.length === 0) {
             numberOfJobOffers = 0;
-            jobOffers = 'No current job offers';
         } else {
             numberOfJobOffers = jobOffers.length;
             jobOffers = jobOffers.map(job =>
@@ -31,7 +30,6 @@ export default function JobOffers(props) {
         }
     } else {
         numberOfJobOffers = 0;
-        jobOffers = 'No current job offers';
     }
 
     return (

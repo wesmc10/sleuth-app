@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './ViewJobModal.css';
 import SleuthContext from '../SleuthContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 export default class ViewJobModal extends Component {
     static contextType = SleuthContext;
@@ -19,17 +21,34 @@ export default class ViewJobModal extends Component {
         }
     }
 
+    handleClickCloseModal = () => {
+        this.props.closeModal('showJobModal');
+    }
+
     render() {
         const { showModal } = this.props;
         const showOrHideModal = showModal ? 'Modal display' : 'Modal hide';
+
         let clickedJob = sessionStorage.getItem('clickedJob');
         clickedJob = JSON.parse(clickedJob);
 
         return (
             <div className={showOrHideModal}>
                 <section ref={node => this.node = node} className="ViewJobModal_section">
+                    <button
+                        type="button"
+                        className="close_job_modal_button"
+                        onClick={this.handleClickCloseModal}>
+                            <FontAwesomeIcon icon={faTimes} />
+                    </button>
                     <section className="ViewJobModal_company">
                         <p>{clickedJob && clickedJob.company}</p>
+                        <p>{clickedJob && clickedJob.position}</p>
+                        <p>{clickedJob && clickedJob.job_location}</p>
+                        <p>{clickedJob && clickedJob.salary}</p>
+                        <p>{clickedJob && clickedJob.date_applied}</p>
+                        <p>{clickedJob && clickedJob.interview_date}</p>
+                        <p>{clickedJob && clickedJob.notes}</p>
                     </section>
                 </section>
             </div>

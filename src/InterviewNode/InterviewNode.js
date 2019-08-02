@@ -15,16 +15,11 @@ class InterviewNode extends Component {
         document.addEventListener('mousedown', this.handleClickJobNode);
     }
 
-
-
     handleClickJobNode = (e) => {
-        if (this.node.contains(e.target) && !this.button.contains(e.target)) {
-            console.log('true');
-            // this.context.addClickedJob(this.props.job);
-            // this.props.displayModal('showJobModal', 'job');
-            // this.props.history.push('/dashboard/edit-job');
-        } else {
-            console.log('false');
+        if (this.node && this.node.contains(e.target) && !this.edit_button.contains(e.target) && !this.delete_button.contains(e.target)) {
+            this.context.addClickedJob(this.props.job);
+            this.props.displayModal('showJobModal', 'job');
+            this.props.history.push('/dashboard/edit-job');
         }
     }
 
@@ -79,13 +74,14 @@ class InterviewNode extends Component {
         return (
             <div ref={node => this.node = node} className="User_upcoming_interview" onClick={this.handleClickJobNode}>
                 <button 
+                    ref={button => this.delete_button = button}
                     type="button" 
                     className="Job_delete_button"
                     onClick={this.handleDeleteJobNode}>
                         <FontAwesomeIcon icon={faTrashAlt} />
                 </button>
                 <button
-                    ref={button => this.button = button}
+                    ref={button => this.edit_button = button}
                     type="button"
                     className="Job_edit_button"
                     onClick={this.handleClickEdit}>

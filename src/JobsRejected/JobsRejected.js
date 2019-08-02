@@ -16,7 +16,6 @@ export default function JobsRejected(props) {
 
         if (jobsRejected.length === 0) {
             numberOfJobsRejected = 0;
-            jobsRejected = 'No current rejections';
         } else {
             numberOfJobsRejected = jobsRejected.length;
             jobsRejected = jobsRejected.map(job =>
@@ -31,7 +30,6 @@ export default function JobsRejected(props) {
         }
     } else {
         numberOfJobsRejected = 0;
-        jobsRejected = 'No current rejections';
     }
 
     return (

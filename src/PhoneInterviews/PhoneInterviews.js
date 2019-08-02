@@ -16,7 +16,6 @@ export default function PhoneInterviews(props) {
 
         if (phoneInterviews.length === 0) {
             numberOfPhoneInterviews = 0;
-            phoneInterviews = 'No phone interviews are currently scheduled';
         } else {
             numberOfPhoneInterviews = phoneInterviews.length;
             phoneInterviews = phoneInterviews.map(job =>
@@ -31,7 +30,6 @@ export default function PhoneInterviews(props) {
         }
     } else {
         numberOfPhoneInterviews = 0;
-        phoneInterviews = 'No phone interviews are currently scheduled';
     }
 
     return (

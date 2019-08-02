@@ -16,7 +16,6 @@ export default function TechnicalInterviews(props) {
 
         if (technicalInterviews.length === 0) {
             numberOfTechnicalInterviews = 0;
-            technicalInterviews = 'No technical interviews are currently scheduled';
         } else {
             numberOfTechnicalInterviews = technicalInterviews.length;
             technicalInterviews = technicalInterviews.map(job =>
@@ -31,7 +30,6 @@ export default function TechnicalInterviews(props) {
         }
     } else {
         numberOfTechnicalInterviews = 0;
-        technicalInterviews = 'No technical interviews are currently scheduled';
     }
 
     return (
