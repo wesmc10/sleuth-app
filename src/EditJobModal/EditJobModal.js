@@ -30,7 +30,7 @@ class EditJobModal extends Component {
         let clickedJob = sessionStorage.getItem('clickedJob');
         clickedJob = JSON.parse(clickedJob);
 
-        if (Object.entries(clickedJob).length === 0) {
+        if (clickedJob && Object.entries(clickedJob).length === 0) {
             this.props.closeModal('showEditJobModal');
             this.props.history.push('/dashboard');
         }

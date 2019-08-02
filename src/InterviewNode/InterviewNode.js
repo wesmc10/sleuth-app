@@ -78,8 +78,8 @@ class InterviewNode extends Component {
                     onClick={this.handleClickEdit}>
                         <FontAwesomeIcon icon={faEdit} />
                 </button>
-                <h3>{job.company}</h3>
-                <p>{job.position}</p>
+                <h3>{job && job.company}</h3>
+                <p>{job && job.position}</p>
                 {jobStatus}
             </div>   
         );

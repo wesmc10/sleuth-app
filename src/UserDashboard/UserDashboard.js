@@ -30,6 +30,16 @@ export default class UserDashboard extends Component {
 
     static contextType = SleuthContext;
 
+    static defaultProps = {
+        history: {
+            push: () => {}
+        },
+
+        location: {
+            pathname: () => {}
+        }
+    };
+
     componentDidMount() {
         if (!TokenService.hasAuthToken()) {
             this.props.history.push('/');
