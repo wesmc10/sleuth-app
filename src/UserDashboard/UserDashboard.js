@@ -18,6 +18,7 @@ export default class UserDashboard extends Component {
     state = {
         showAddJobModal: false,
         showEditJobModal: false,
+        showJobModal: false,
         today: new Date(),
         error: null
     };
@@ -38,19 +39,18 @@ export default class UserDashboard extends Component {
                 showEditJobModal: true
             });
         }
+
+        if (this.props.location.pathname === '/dashboard/event') {
+            this.setState({
+                showJobModal: true
+            });
+        }
     }
 
     handleClickAddJobButton = () => {
         this.props.history.push('/dashboard/add-job');
         this.setState({
             showAddJobModal: true
-        });
-    }
-
-    handleCloseAddJobModal = () => {
-        this.props.history.push('/dashboard');
-        this.setState({
-            showAddJobModal: false
         });
     }
 
@@ -61,10 +61,10 @@ export default class UserDashboard extends Component {
         });
     }
 
-    handleCloseEditJobModal = () => {
+    handleCloseModal = (key) => {
         this.props.history.push('/dashboard');
         this.setState({
-            showEditJobModal: false
+            [key]: false
         });
     }
 
@@ -73,14 +73,14 @@ export default class UserDashboard extends Component {
         const renderAddJobModal = showAddJobModal
             ?   <AddJobModal
                     showModal={this.state.showAddJobModal}
-                    closeModal={this.handleCloseAddJobModal}
+                    closeModal={this.handleCloseModal}
                 />
             :   ''
         ;
         const renderEditJobModal = showEditJobModal
             ?   <EditJobModal
                     showModal={this.state.showEditJobModal}
-                    closeModal={this.handleCloseEditJobModal}
+                    closeModal={this.handleCloseModal}
                 />
             :   ''
         ;

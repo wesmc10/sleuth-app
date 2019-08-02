@@ -31,7 +31,6 @@ export default class AddJobModal extends Component {
 
     handleClick = (e) => {
         if (!this.node.contains(e.target)) {
-            this.props.closeModal();
             this.setState({
                 company: '',
                 position: '',
@@ -42,11 +41,11 @@ export default class AddJobModal extends Component {
                 applicationStatus: 'Applied',
                 notes: ''
             });
+            this.props.closeModal('showAddJobModal');
         }
     }
 
     handleClickCloseModal = () => {
-        this.props.closeModal();
         this.setState({
             company: '',
             position: '',
@@ -57,6 +56,7 @@ export default class AddJobModal extends Component {
             applicationStatus: 'Applied',
             notes: ''
         });
+        this.props.closeModal('showAddJobModal');
     }
 
     handleFormSubmission = (e) => {
@@ -114,7 +114,7 @@ export default class AddJobModal extends Component {
                 res.interview_date = null;
             }
             this.context.addNewJob(res);
-            this.props.closeModal();
+            this.props.closeModal('showAddJobModal');
         })
         .catch(res => {
             this.setState({

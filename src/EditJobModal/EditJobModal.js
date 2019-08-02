@@ -49,7 +49,6 @@ export default class EditJobModal extends Component {
 
     handleClick = (e) => {
         if (!this.node.contains(e.target)) {
-            this.props.closeModal();
             this.setState({
                 company: '',
                 position: '',
@@ -60,11 +59,11 @@ export default class EditJobModal extends Component {
                 applicationStatus: '',
                 notes: ''
             });
+            this.props.closeModal('showEditJobModal');
         }
     }
 
     handleClickCloseModal = () => {
-        this.props.closeModal();
         this.setState({
             company: '',
             position: '',
@@ -75,6 +74,7 @@ export default class EditJobModal extends Component {
             applicationStatus: '',
             notes: ''
         });
+        this.props.closeModal('showEditJobModal');
     }
 
     handleFormSubmission = (e) => {
@@ -135,7 +135,7 @@ export default class EditJobModal extends Component {
                 ...editedJob,
                 id: clickedJob.id
             });
-            this.props.closeModal();
+            this.props.closeModal('showEditJobModal');
         })
         .catch(res => {
             this.setState({
