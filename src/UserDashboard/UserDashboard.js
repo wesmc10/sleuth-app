@@ -177,6 +177,7 @@ export default class UserDashboard extends Component {
                     {renderEditJobModal}
                     {renderViewJobModal}
                 </div>
+
             :   <div className="UserDashboard_main">
                     <SleuthHeader />
                     <div role="alert">
@@ -207,6 +208,9 @@ export default class UserDashboard extends Component {
                             />
                         </section>
                     </div>
+                    {renderAddJobModal}
+                    {renderEditJobModal}
+                    {renderViewJobModal}
                 </div>
 
         return (
