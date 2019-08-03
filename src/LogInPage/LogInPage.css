@@ -1,9 +1,9 @@
 .LogInPage_login_section {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    margin: 50% 15px 0;
+    margin: 200px 15px 0;
 }
 
 .LogInPage_login_button {

@@ -60,6 +60,11 @@ export default class LogInPage extends Component {
                 this.props.history.push('/dashboard');
             }
         })
+        .catch(res => {
+            this.setState({
+                error: res.error
+            });
+        })
     }
 
     handleUserNameChange = (e) => {
