@@ -1,21 +1,39 @@
 .SleuthHeader_main {
-    background-color: lightgray;
+    background-color: #197902;
     padding: 15px;
 }
 
-.SleuthHeader_header {
+.SleuthHeader_header_logout {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
+.SleuthHeader_header_nologout {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.SleuthHeader_icon_nologout {
+    margin-right: 10px;
+    font-size: 25px;
+}
+
 .SleuthHeader_logout {
     font-size: 22px;
-    background-color: lightgray;
+    background-color: #197902;
     border: none;
 }
 
 .SleuthHeader_logout:hover {
     cursor: pointer;
+}
+
+.SleuthHeader_title {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
 }

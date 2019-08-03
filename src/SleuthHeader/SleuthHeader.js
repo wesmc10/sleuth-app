@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './SleuthHeader.css';
 import TokenService from '../token-service';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faSignOutAlt, faUserSecret } from '@fortawesome/free-solid-svg-icons';
 import SleuthContext from '../SleuthContext';
 import { withRouter } from 'react-router-dom';
 
@@ -18,8 +18,11 @@ class SleuthHeader extends Component {
 
     render() {
         const sleuthHeader = TokenService.hasAuthToken()
-            ?   <header className="SleuthHeader_header">
-                    <h2 className="SleuthHeader_title">Sleuth</h2>
+            ?   <header className="SleuthHeader_header_logout">
+                    <div className="SleuthHeader_icon_title">
+                        <FontAwesomeIcon icon={faUserSecret} className="SleuthHeader_icon" />
+                        <h2 className="SleuthHeader_title">Sleuth</h2>
+                    </div>
                     <button 
                         type="button" 
                         className="SleuthHeader_logout"
@@ -27,7 +30,8 @@ class SleuthHeader extends Component {
                             <FontAwesomeIcon icon={faSignOutAlt} />
                     </button>
                 </header>
-            :   <header className="SleuthHeader_header">
+            :   <header className="SleuthHeader_header_nologout">
+                    <FontAwesomeIcon icon={faUserSecret} className="SleuthHeader_icon_nologout" />
                     <h2 className="SleuthHeader_title">Sleuth</h2>
                 </header>
         ;
