@@ -1,3 +1,8 @@
+.UserDashboard_main {
+    height: 100%;
+    background: linear-gradient(#197902, white, white);
+}
+
 .UserDashboard_flex_container {
     display: flex;
     flex-direction: column;
@@ -14,22 +19,20 @@
 }
 
 .UserDashboard_add_job {
-    background-color: white;
+    background: none;
     border: none;
     font-size: 35px;
-    /* float: right;
-    margin-right: 15px;
-    margin-top: 15px; */
 }
 
 .UserDashboard_add_job:hover {
     cursor: pointer;
+    color: white;
 }
 
-.UserDashboard_applied_title, .UserDashboard_phone_title, .UserDashboard_technical_title,
-.UserDashboard_on_site_title, .UserDashboard_offers_title, .UserDashboard_rejected_title {
+.title {
     text-align: center;
     margin-bottom: 30px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .UserDashboard_upcoming, .UserDashboard_applied, .UserDashboard_phone, .UserDashboard_technical,

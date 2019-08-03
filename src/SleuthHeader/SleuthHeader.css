@@ -1,5 +1,6 @@
 .SleuthHeader_main {
     padding: 15px;
+    background-color: none;
 }
 
 .SleuthHeader_header_logout {
@@ -14,10 +15,16 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    background-color: none;
 }
 
-.SleuthHeader_icon_nologout {
+.SleuthHeader_icon_title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.SleuthHeader_icon_nologout, .SleuthHeader_icon {
     margin-right: 10px;
     font-size: 25px;
     color: black;
@@ -25,15 +32,23 @@
 
 .SleuthHeader_logout {
     font-size: 22px;
-    background-color: #197902;
+    background-color: none;
     border: none;
+    background: none;
 }
 
 .SleuthHeader_logout:hover {
     cursor: pointer;
+    color: white;
 }
 
 .SleuthHeader_title {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+}
+
+.SleuthHeader_title_logout {
     color: white;
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;

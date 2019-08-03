@@ -21,7 +21,7 @@ class SleuthHeader extends Component {
             ?   <header className="SleuthHeader_header_logout">
                     <div className="SleuthHeader_icon_title">
                         <FontAwesomeIcon icon={faUserSecret} className="SleuthHeader_icon" />
-                        <h2 className="SleuthHeader_title">Sleuth</h2>
+                        <h2 className="SleuthHeader_title_logout">Sleuth</h2>
                     </div>
                     <button 
                         type="button" 

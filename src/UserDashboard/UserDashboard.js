@@ -169,44 +169,44 @@ export default class UserDashboard extends Component {
                     </div>
                     <div className="UserDashboard_flex_container">
                         <section className="UserDashboard_upcoming">
-                            <h2 className="Upcoming_title">Upcoming Interviews</h2>
+                            <h2 className="Upcoming title">Upcoming Interviews</h2>
                             <UpcomingInterviews
                                 today={today}
                                 displayModal={this.handleShowModal}
                             />
                         </section>
                         <section className="UserDashboard_applied">
-                            <h2 className="UserDashboard_applied_title">Applied</h2>
+                            <h2 className="UserDashboard_applied title">Applied</h2>
                             <AppliedJobs
                                 displayModal={this.handleShowModal}
                             />
                         </section>
                         <section className="UserDashboard_phone">
-                            <h2 className="UserDashboard_phone_title">Phone</h2>
+                            <h2 className="UserDashboard_phone title">Phone</h2>
                             <PhoneInterviews
                                 displayModal={this.handleShowModal}
                             />
                         </section>
                         <section className="UserDashboard_technical">
-                            <h2 className="UserDashboard_technical_title">Technical</h2>
+                            <h2 className="UserDashboard_technical title">Technical</h2>
                             <TechnicalInterviews
                                 displayModal={this.handleShowModal}
                             />
                         </section>
                         <section className="UserDashboard_on_site">
-                            <h2 className="UserDashboard_on_site_title">On-site</h2>
+                            <h2 className="UserDashboard_on_site title">On-site</h2>
                             <OnSiteInterviews
                                 displayModal={this.handleShowModal}
                             />
                         </section>
                         <section className="UserDashboard_offers">
-                            <h2 className="UserDashboard_offers_title">Offers</h2>
+                            <h2 className="UserDashboard_offers title">Offers</h2>
                             <JobOffers
                                 displayModal={this.handleShowModal}
                             />
                         </section>
                         <section className="UserDashboard_rejected">
-                            <h2 className="UserDashboard_rejected_title">Rejected</h2>
+                            <h2 className="UserDashboard_rejected title">Rejected</h2>
                             <JobsRejected
                                 displayModal={this.handleShowModal}
                             />
@@ -240,7 +240,7 @@ export default class UserDashboard extends Component {
                     </div>
                     <div className="UserDashboard_flex_container">
                         <section className="UserDashboard_upcoming">
-                            <h2 className="Upcoming_title">Search Results</h2>
+                            <h2 className="Upcoming title">Search Results</h2>
                             <DashBoardSearchResults
                                 searchResults={matchingJobs}
                                 deleteJob={this.handleDeleteAMatchingJob}
