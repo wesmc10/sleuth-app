@@ -87,30 +87,33 @@ export default class LogInPage extends Component {
                 <SleuthHeader />
                 <form className="LogInPage_form" onSubmit={this.handleFormSubmission}>
                     <fieldset>
+                        <legend>Log In</legend>
                         <section className="LogInPage_login_section">
-                            <legend>Log In Form</legend>
                             <div role="alert">
                                 {error && <p className="red">{error}</p>}
                             </div>
-                            <label htmlFor="LoginPage_user_name">User Name</label>
-                            <input
-                                id="LoginPage_user_name"
-                                name="LoginPage_user_name"
-                                type="text"
-                                placeholder="User name"
-                                required
-                                onChange={this.handleUserNameChange}
-                            />
-                            <label htmlFor="LoginPage_password">Password</label>
-                            <input
-                                id="LoginPage_password"
-                                name="LoginPage_password"
-                                type="password"
-                                placeholder="Password"
-                                required
-                                onChange={this.handlePasswordChange}
-                            />
-            
+                            <section className="Username_section">
+                                <label htmlFor="LogInPage_user_name" className="label">User Name</label>
+                                <input
+                                    id="LogInPage_user_name"
+                                    name="LogInPage_user_name"
+                                    type="text"
+                                    placeholder="User name"
+                                    required
+                                    onChange={this.handleUserNameChange}
+                                />
+                            </section>
+                            <section className="Password_section">
+                                <label htmlFor="LogInPage_password" className="label">Password</label>
+                                <input
+                                    id="LogInPage_password"
+                                    name="LogInPage_password"
+                                    type="password"
+                                    placeholder="Password"
+                                    required
+                                    onChange={this.handlePasswordChange}
+                                />
+                            </section>
                             <button type="submit" className="LogInPage_login_button">{buttonText}</button>            
                         </section>
                     </fieldset>

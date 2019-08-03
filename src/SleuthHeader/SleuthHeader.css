@@ -1,5 +1,4 @@
 .SleuthHeader_main {
-    background-color: #197902;
     padding: 15px;
 }
 
@@ -15,11 +14,13 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    background-color: none;
 }
 
 .SleuthHeader_icon_nologout {
     margin-right: 10px;
     font-size: 25px;
+    color: black;
 }
 
 .SleuthHeader_logout {
