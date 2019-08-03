@@ -37,7 +37,7 @@ class SleuthHeader extends Component {
         ;
 
         return (
-            <div className="SleuthHeader_main">
+            <div className={TokenService.hasAuthToken() ? "SleuthHeader_main_color" : "SleuthHeader_main"}>
                 {sleuthHeader}
             </div>
         );

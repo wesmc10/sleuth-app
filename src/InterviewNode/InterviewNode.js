@@ -61,9 +61,21 @@ class InterviewNode extends Component {
                 ? <p>{`Applied on ${dateFns.format(applied, 'MMMM Do')}`}</p>
                 : ''
         ;
+        const colorOfNode = job.application_status === 'Applied'
+            ? 'orange'
+            : job.application_status === 'Phone'
+                ? 'purple'
+                : job.application_status === 'Technical'
+                    ? 'yellow'
+                    : job.application_status === 'On-site'
+                        ? 'blue'
+                        : job.application_status === 'Offer'
+                            ? 'green'
+                            : 'bright_red'
+        ;
 
         return (
-            <div ref={node => this.node = node} className="User_upcoming_interview" onClick={this.handleClickJobNode}>
+            <div ref={node => this.node = node} className={`User_upcoming_interview ${colorOfNode}`} onClick={this.handleClickJobNode}>
                 <button 
                     ref={button => this.delete_button = button}
                     type="button" 

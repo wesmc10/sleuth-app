@@ -5,6 +5,12 @@
     margin-bottom: 10px;
     position: relative;
     width: 280px;
+    border: none;
+    color: white;
+}
+
+li {
+    list-style: none;
 }
 
 .User_upcoming_interview:hover {
@@ -21,9 +27,10 @@
     top: 15px;
     right: 20px;
     font-size: 18px;
-    background-color: white;
+    background: none;
     border: none;
     display: none;
+    color: white;
 }
 
 .Job_delete_button:hover {
@@ -35,11 +42,36 @@
     bottom: 15px;
     right: 20px;
     font-size: 18px;
-    background-color: white;
+    background: none;
     border: none;
     display: none;
+    color: white;
 }
 
 .Job_edit_button:hover {
     cursor: pointer;
+}
+
+.orange {
+    background: #f3a920;
+}
+
+.purple {
+    background: #6b3a6b;
+}
+
+.yellow {
+    background: #aaaa14;
+}
+
+.blue {
+    background: #3d3d9b;
+}
+
+.green {
+    background: #199e19;
+}
+
+.bright_red {
+    background: #ce1b1b;
 }

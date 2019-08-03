@@ -3,6 +3,11 @@
     background-color: none;
 }
 
+.SleuthHeader_main_color {
+    padding: 15px;
+    background-color: #197902;
+}
+
 .SleuthHeader_header_logout {
     display: flex;
     flex-direction: row;

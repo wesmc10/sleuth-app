@@ -151,8 +151,8 @@ export default class UserDashboard extends Component {
                     <div role="alert">
                         {error && <p className="red">{error}</p>}
                     </div>
-                    <div className="UserDashboard_flex_header">
-                        <label htmlFor="UserDashboard_job_search">Search</label>
+                    <section className="Search_user_jobs">
+                        <label htmlFor="UserDashboard_job_search" className="search label">Search</label>
                         <input
                             type="text"
                             id="UserDashboard_job_search"
@@ -160,13 +160,13 @@ export default class UserDashboard extends Component {
                             placeholder="Company name"
                             onChange={this.handleChangeSearchValue}
                         />
-                        <button 
-                            type="button"
-                            className="UserDashboard_add_job"
-                            onClick={() => this.handleShowModal('showAddJobModal', 'add-job')}>
-                                <FontAwesomeIcon icon={faPlusSquare} />
-                        </button>
-                    </div>
+                    </section>
+                    <button 
+                        type="button"
+                        className="UserDashboard_add_job"
+                        onClick={() => this.handleShowModal('showAddJobModal', 'add-job')}>
+                            <FontAwesomeIcon icon={faPlusSquare} />
+                    </button>
                     <div className="UserDashboard_flex_container">
                         <section className="UserDashboard_upcoming">
                             <h2 className="Upcoming title">Upcoming Interviews</h2>
@@ -222,8 +222,8 @@ export default class UserDashboard extends Component {
                     <div role="alert">
                         {error && <p className="red">{error}</p>}
                     </div>
-                    <div className="UserDashboard_flex_header">
-                        <label htmlFor="UserDashboard_job_search">Search</label>
+                    <section className="Search_user_jobs">
+                        <label htmlFor="UserDashboard_job_search" className="search label">Search</label>
                         <input
                             type="text"
                             id="UserDashboard_job_search"
@@ -231,13 +231,13 @@ export default class UserDashboard extends Component {
                             placeholder="Company name"
                             onChange={this.handleChangeSearchValue}
                         />
-                        <button 
-                            type="button"
-                            className="UserDashboard_add_job"
-                            onClick={() => this.handleShowModal('showAddJobModal', 'add-job')}>
-                                <FontAwesomeIcon icon={faPlusSquare} />
-                        </button>
-                    </div>
+                    </section>
+                    <button 
+                        type="button"
+                        className="UserDashboard_add_job"
+                        onClick={() => this.handleShowModal('showAddJobModal', 'add-job')}>
+                            <FontAwesomeIcon icon={faPlusSquare} />
+                    </button>
                     <div className="UserDashboard_flex_container">
                         <section className="UserDashboard_upcoming">
                             <h2 className="Upcoming title">Search Results</h2>

@@ -1,6 +1,6 @@
 .UserDashboard_main {
     height: 100%;
-    background: linear-gradient(#197902, white, white);
+    position: relative;
 }
 
 .UserDashboard_flex_container {
@@ -11,27 +11,33 @@
     margin: 80px 15px 30px;
 }
 
-.UserDashboard_flex_header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+.Search_user_jobs {
+    margin: 30px 15px;
+}
+
+#UserDashboard_job_search {
+    width: 200px;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 17px;
 }
 
 .UserDashboard_add_job {
+    position: absolute;
     background: none;
     border: none;
     font-size: 35px;
+    top: 85px;
+    right: 15px;
 }
 
 .UserDashboard_add_job:hover {
     cursor: pointer;
-    color: white;
 }
 
 .title {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     font-family: 'Montserrat', sans-serif;
 }
 
