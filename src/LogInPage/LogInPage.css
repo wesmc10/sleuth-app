@@ -35,6 +35,10 @@
     font-size: 12px;
 }
 
+.Account_question {
+    text-align: center;
+}
+
 .SignUp_link {
     margin-left: 5px;
     color: #eafa04;
@@ -66,8 +70,33 @@ legend {
 
 .label {
     margin-bottom: 6px;
+    display: block;
 }
 
-#LogInPage_password, #LogInPage_user_name, .label {
-    display: block;
+@media screen and (min-width: 450px) {
+    .LogInPage_login_button {
+        width: 250px;
+        height: 60px;
+        font-size: 20px;
+    }
+
+    #LogInPage_password, #LogInPage_user_name {
+        width: 300px;
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 650px) {
+    .LogInPage_login_button {
+        width: 280px;
+        height: 65px;
+    }
+
+    #LogInPage_password, #LogInPage_user_name {
+        width: 330px;
+    }
+
+    legend {
+        font-size: 32px;
+    }
 }

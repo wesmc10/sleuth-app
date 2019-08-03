@@ -99,47 +99,55 @@ export default class SignUpPage extends Component {
                 <SleuthHeader />              
                 <form className="SignUpPage_form" onSubmit={this.handleFormSubmission}>
                     <fieldset>
+                        <legend>Sign Up</legend>
                         <section className="SignUpPage_signup_section">
-                            <legend>Sign Up Form</legend>
                             <div role="alert">
 					            {error && <p className="red">{error}</p>}
 				            </div>  
-                            <label htmlFor="SignUpPage_first_name">First Name</label>
-                            <input
-                                id="SignUpPage_first_name"
-                                name="SignUpPage_first_name"
-                                type="text"
-                                placeholder="First name"
-                                required
-                                onChange={this.handleFirstNameChange}
-                            />
-                            <label htmlFor="SignUpPage_last_name">Last Name</label>
-                            <input
-                                id="SignUpPage_last_name"
-                                name="SignUpPage_last_name"
-                                type="text"
-                                placeholder="Last name"
-                                required
-                                onChange={this.handleLastNameChange}
-                            />
-                            <label htmlFor="SignUpPage_user_name">User Name</label>
-                            <input
-                                id="SignUpPage_user_name"
-                                name="SignUpPage_user_name"
-                                type="text"
-                                placeholder="User name"
-                                required
-                                onChange={this.handleUserNameChange}
-                            />
-                            <label htmlFor="SignUpPage_password">Password</label>
-                            <input
-                                id="SignUpPage_password"
-                                name="SignUpPage_password"
-                                type="password"
-                                placeholder="Password"
-                                required
-                                onChange={this.handlePasswordChange}
-                            />
+                            <section className="Signup_first_name">
+                                <label htmlFor="SignUpPage_first_name" className="label">First Name</label>
+                                <input
+                                    id="SignUpPage_first_name"
+                                    name="SignUpPage_first_name"
+                                    type="text"
+                                    placeholder="First name"
+                                    required
+                                    onChange={this.handleFirstNameChange}
+                                />
+                            </section>
+                            <section className="Signup_last_name">
+                                <label htmlFor="SignUpPage_last_name" className="label">Last Name</label>
+                                <input
+                                    id="SignUpPage_last_name"
+                                    name="SignUpPage_last_name"
+                                    type="text"
+                                    placeholder="Last name"
+                                    required
+                                    onChange={this.handleLastNameChange}
+                                />
+                            </section>
+                            <section className="Signup_user_name">
+                                <label htmlFor="SignUpPage_user_name" className="label">User Name</label>
+                                <input
+                                    id="SignUpPage_user_name"
+                                    name="SignUpPage_user_name"
+                                    type="text"
+                                    placeholder="User name"
+                                    required
+                                    onChange={this.handleUserNameChange}
+                                />
+                            </section>
+                            <section className="Signup_password">
+                                <label htmlFor="SignUpPage_password" className="label">Password</label>
+                                <input
+                                    id="SignUpPage_password"
+                                    name="SignUpPage_password"
+                                    type="password"
+                                    placeholder="Password"
+                                    required
+                                    onChange={this.handlePasswordChange}
+                                />
+                            </section>
             
                             <button type="submit" className="SignUpPage_signup_button">{buttonText}</button>
                         </section>

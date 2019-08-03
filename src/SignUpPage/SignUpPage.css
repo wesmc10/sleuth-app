@@ -1,28 +1,81 @@
+.SignUpPage_main {
+    height: 100vh;
+    color: white;
+    background: linear-gradient(#197902, black);
+}
+
 .SignUpPage_signup_section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 200px 15px 0;
+    margin: 70px 15px 0;
 }
 
 .SignUpPage_signup_button {
-    margin-top: 15px;
-    margin-bottom: 15px;
+    background-color: #790255;
+    color: white;
+    width: 200px;
+    height: 50px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    font-weight: 700;
+    border: none;
+    margin-bottom: 30px;
+}
+
+.SignUpPage_signup_button:hover {
+    background-color: white;;
+    color: #790255;
+    cursor: pointer;
 }
 
 .Account_question, .LogIn_link {
     font-size: 12px;
 }
 
-.Account_question {
-    text-align: center;
-}
-
 .LogIn_link {
     margin-left: 5px;
+    color: #eafa04;
+    text-decoration: none;
 }
 
-fieldset {
-    border: 0;
+#SignUpPage_password {
+    margin-bottom: 50px;
+}
+
+#SignUpPage_first_name, #SignUpPage_last_name, #SignUpPage_user_name {
+    margin-bottom: 10px;
+}
+
+#SignUpPage_first_name, #SignUpPage_last_name, #SignUpPage_user_name, #SignUpPage_password {
+    width: 250px;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 17px;
+}
+
+@media screen and (min-width: 450px) {
+    .SignUpPage_signup_button {
+        width: 250px;
+        height: 60px;
+        font-size: 20px;
+    }
+
+    #SignUpPage_first_name, #SignUpPage_last_name, #SignUpPage_user_name, #SignUpPage_password {
+        width: 300px;
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 650px) {
+    .SignUpPage_signup_button {
+        width: 280px;
+        height: 65px;
+    }
+
+    #SignUpPage_first_name, #SignUpPage_last_name, #SignUpPage_user_name, #SignUpPage_password {
+        width: 330px;
+    }
 }

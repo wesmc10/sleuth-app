@@ -114,6 +114,7 @@ export default class LogInPage extends Component {
                                     onChange={this.handlePasswordChange}
                                 />
                             </section>
+                            
                             <button type="submit" className="LogInPage_login_button">{buttonText}</button>            
                         </section>
                     </fieldset>

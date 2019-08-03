@@ -19,3 +19,7 @@ body {
 button {
 	font-family: 'Montserrat', sans-serif;
 }
+
+fieldset {
+    border: 0;
+}
