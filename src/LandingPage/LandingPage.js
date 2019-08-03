@@ -23,9 +23,9 @@ export default class LandingPage extends Component {
 
         return (
             <div className="LandingPage_main">
+                <FontAwesomeIcon  icon={faUserSecret} className="LandingPage_icon"/>
                 <div className="LandingPage_flex_container">
                     <section className="LandingPage_content_section">
-                        <FontAwesomeIcon  icon={faUserSecret} className="LandingPage_icon"/>
                         <h1 className="LandingPage_title">Sleuth</h1>
                         <h2 className="LandingPage_subtitle">A Tracker App for the Job Hunt</h2>
                         <h3 className="LandingPage_tagline">Your job search starts &#x2014; and ends &#x2014; here</h3>

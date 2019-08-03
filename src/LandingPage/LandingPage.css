@@ -1,4 +1,5 @@
 .LandingPage_main {
+    position: relative;
     height: 100vh;
     color: white;
     background: url('https://cdn4.iconfinder.com/data/icons/political-elections/50/29-512.png') no-repeat top center fixed, 
@@ -15,13 +16,12 @@
 }
 
 .LandingPage_content_section {
-    position: relative;
     margin: 120px 15px 0;
 }
 
 .LandingPage_title {
     font-family: 'Montserrat', sans-serif;
-    font-size: 45px;
+    font-size: 55px;
     margin-bottom: 15px;
 }
 
@@ -36,13 +36,13 @@
 
 .LandingPage_login_button {
     margin-bottom: 30px;
-    background-color: #ba09f0;
+    background-color: #790255;
     color: white;
 }
 
 .LandingPage_signup_button {
     background-color: white;;
-    color: #ba09f0;
+    color: #790255;
 }
 
 .LandingPage_signup_button, .LandingPage_login_button {
@@ -57,24 +57,119 @@
 }
 
 .LandingPage_signup_button:hover {
-    background-color: #ba09f0;
+    background-color: #790255;
     color: white;
 }
 
 .LandingPage_login_button:hover {
     background-color: white;;
-    color: #ba09f0;
+    color: #790255;
 }
 
 .LandingPage_signup_button:hover, .LandingPage_login_button:hover {
     cursor: pointer;
 }
 
+.LandingPage_buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .LandingPage_icon {
     font-size: 40px;
     position: absolute;
-    top: -100px;
-    right: 10px;
+    top: 20px;
+    right: 25px;
     color: black;
-    /* color: #003103; */
+}
+
+@media screen and (min-width: 450px) {
+    .LandingPage_title {
+        font-size: 60px;
+    }
+
+    .LandingPage_subtitle {
+        font-size: 28px;
+        margin-bottom: 80px;
+    }
+    
+    .LandingPage_tagline {
+        font-size: 20px;
+        margin-bottom: 70px;
+    }
+
+    .LandingPage_signup_button, .LandingPage_login_button {
+        width: 250px;
+        height: 60px;
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .LandingPage_main {
+        background-size: contain;
+    }
+
+    .LandingPage_subtitle {
+        margin-bottom: 100px;
+    }
+
+    .LandingPage_tagline {
+        margin-bottom: 80px;
+    }
+}
+
+@media screen and (min-width: 650px) {
+    .LandingPage_tagline {
+        font-size: 22px;
+    }
+
+    .LandingPage_signup_button, .LandingPage_login_button {
+        width: 280px;
+        height: 65px;
+    }
+}
+
+@media screen and (min-width: 1050px) {
+    .LandingPage_title {
+        font-size: 65px;
+    }
+
+    .LandingPage_subtitle {
+        font-size: 30px;
+    }
+    
+    .LandingPage_tagline {
+        font-size: 22px;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .LandingPage_main {
+        background: url('https://cdn4.iconfinder.com/data/icons/political-elections/50/29-512.png') no-repeat top left fixed, 
+            linear-gradient(#197902, black);
+        background-size: contain;
+    }
+
+    .LandingPage_flex_container {
+        margin-left: 40%;
+    }
+
+    .LandingPage_content_section {
+        margin-top: 90px;
+    }
+
+    .LandingPage_title {
+        font-size: 70px;
+    }
+
+    .LandingPage_subtitle {
+        font-size: 32px;
+    }
+    
+    .LandingPage_tagline {
+        font-size: 24px;
+    }
 }
