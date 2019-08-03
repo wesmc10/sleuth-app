@@ -130,6 +130,10 @@
         width: 280px;
         height: 65px;
     }
+
+    .LandingPage_icon {
+        right: 35px;
+    }
 }
 
 @media screen and (min-width: 1050px) {
@@ -154,7 +158,7 @@
     }
 
     .LandingPage_flex_container {
-        margin-left: 40%;
+        margin-left: 45%;
     }
 
     .LandingPage_content_section {
@@ -172,4 +176,10 @@
     .LandingPage_tagline {
         font-size: 24px;
     }
+}
+
+@media screen and (min-width: 1400px) {
+    .LandingPage_flex_container {
+        margin-left: 40%;
+    }   
 }
