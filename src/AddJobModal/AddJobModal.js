@@ -110,7 +110,7 @@ export default class AddJobModal extends Component {
                 applicationStatus: 'Applied',
                 notes: ''
             });
-            if (res.interview_date === '1969-12-31') {
+            if (res.interview_date === '1969-12-31' || res.interviewDate === '1970-01-01') {
                 res.interview_date = null;
             }
             this.context.addNewJob(res);
