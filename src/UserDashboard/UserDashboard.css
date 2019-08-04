@@ -1,13 +1,11 @@
 .UserDashboard_main {
     height: 100%;
     background: #f1f1f1;
-    /* position: relative; */
 }
 
 .UserDashboard_main_search {
     height: 100vh;
     background: #f1f1f1;
-    /* position: relative; */
 }
 
 .UserDashboard_flex_container {

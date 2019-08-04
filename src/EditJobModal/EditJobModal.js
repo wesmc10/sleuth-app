@@ -43,7 +43,15 @@ class EditJobModal extends Component {
             location: clickedJob ? clickedJob.job_location : '',
             salary: clickedJob ? clickedJob.salary : '',
             dateApplied: clickedJob ? clickedJob.date_applied : '',
-            interviewDate: clickedJob ? clickedJob.interview_date : '',
+            // since values for state shouldn't be null, we check to see if there's a clickedJob,
+            // and if so we check to see if it has an interview date. If so, we return the date, and if
+            // not, we return an empty string rather than null
+            interviewDate: clickedJob 
+                ? clickedJob.interview_date 
+                    ? clickedJob.interview_date 
+                    : '' 
+                : ''
+            ,
             applicationStatus: clickedJob ? clickedJob.application_status : '',
             notes: clickedJob ? clickedJob.notes : ''
         });
