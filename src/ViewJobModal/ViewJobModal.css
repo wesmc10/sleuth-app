@@ -2,13 +2,13 @@
     position: fixed;
     background-color: white;
     width: 80%;
-    max-width: 1000px;
+    max-width: 400px;
     height: auto;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 5px;
-    padding: 15px;
+    padding: 60px 30px;
 }
 
 .close_job_modal_button {
@@ -22,4 +22,41 @@
 
 .close_job_modal_button:hover {
     cursor: pointer;
+}
+
+.Clicked_company {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    margin-bottom: 6px;
+}
+
+.Clicked_position {
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.Clicked_location {
+    margin-bottom: 40px;
+}
+
+.Clicked_salary, .Clicked_date_applied, .Clicked_interview_date,
+.Clicked_application_status, .Clicked_notes {
+    margin-bottom: 10px;
+}
+
+@media screen and (min-width: 650px) {
+    .Clicked_company {
+        font-size: 32px;
+    }
+
+    .Clicked_position {
+        font-size: 21px;
+    }
+
+    .Clicked_location, .Clicked_salary, .Clicked_date_applied, .Clicked_interview_date,
+    .Clicked_application_status, .Clicked_notes {
+        font-size: 18px;
+    }
 }

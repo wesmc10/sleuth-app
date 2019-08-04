@@ -53,23 +53,23 @@ class ViewJobModal extends Component {
                             <FontAwesomeIcon icon={faTimes} />
                     </button>
                     <section className="ViewJobModal_company">
-                        <p>{clickedJob && clickedJob.company}</p>
-                        <p>{clickedJob && clickedJob.position}</p>
-                        <p>{clickedJob && clickedJob.job_location}</p>
-                        <p>{(clickedJob && clickedJob.salary)
+                        <p className="Clicked_company">{clickedJob && clickedJob.company}</p>
+                        <p className="Clicked_position">{clickedJob && clickedJob.position}</p>
+                        <p className="Clicked_location">{clickedJob && clickedJob.job_location}</p>
+                        <p className="Clicked_salary">{(clickedJob && clickedJob.salary)
                             ? `Salary: ${clickedJob.salary}` 
                             : ''}
                         </p>
-                        <p>{`Date applied: ${clickedJob && clickedJob.date_applied}`}</p>
-                        <p>{(clickedJob && clickedJob.interview_date) 
+                        <p className="Clicked_date_applied">{`Date applied: ${clickedJob && clickedJob.date_applied}`}</p>
+                        <p className="Clicked_interview_date">{(clickedJob && clickedJob.interview_date) 
                             ? `Interview date: ${clickedJob.interview_date}` 
                             : ''}
                         </p>
-                        <p>{(clickedJob && clickedJob.application_status) 
+                        <p className="Clicked_application_status">{(clickedJob && clickedJob.application_status) 
                             ? `Application status: ${clickedJob.application_status}` 
                             : ''}
                         </p>
-                        <p>{(clickedJob && clickedJob.notes) 
+                        <p className="Clicked_notes">{(clickedJob && clickedJob.notes) 
                             ? `Notes: ${clickedJob.notes}` 
                             : ''}
                         </p>
