@@ -40,6 +40,9 @@
     background-color: none;
     border: none;
     background: none;
+    position: absolute;
+    top: -13px;
+    right: 3px;
 }
 
 .SleuthHeader_logout:hover {
@@ -59,8 +62,46 @@
     font-size: 18px;
 }
 
+.Tooltip_logout {
+    position: relative;
+}
+
+.Tooltip_logout_text {
+    visibility: hidden;
+    position: absolute;
+    font-size: 12px;
+    top: -14px;
+    right: 43px;
+    width: 100px;
+    background: black;
+    color: white;
+    z-index: 1;
+    border-radius: 10px;
+    text-align: center;
+    padding: 5px;
+}
+
+.Tooltip_logout:hover .Tooltip_logout_text {
+    visibility: visible;
+}
+
+.Tooltip_logout_text::after {
+    position: absolute;
+    content: '';
+    top: 4px;
+    right: -17px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+}
+
 @media screen and (min-width: 1300px) {
     .SleuthHeader_logout {
         font-size: 30px;
+        top: -17px;
+    }
+
+    .Tooltip_logout_text {
+        right: 50px;
     }
 }

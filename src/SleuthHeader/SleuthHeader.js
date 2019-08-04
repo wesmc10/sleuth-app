@@ -23,12 +23,15 @@ class SleuthHeader extends Component {
                         <FontAwesomeIcon icon={faUserSecret} className="SleuthHeader_icon" />
                         <h2 className="SleuthHeader_title_logout">Sleuth</h2>
                     </div>
-                    <button 
-                        type="button" 
-                        className="SleuthHeader_logout"
-                        onClick={this.handleLogOutClick}>
-                            <FontAwesomeIcon icon={faSignOutAlt} />
-                    </button>
+                    <div className="Tooltip_logout">
+                        <button 
+                            type="button" 
+                            className="SleuthHeader_logout"
+                            onClick={this.handleLogOutClick}>
+                                <FontAwesomeIcon icon={faSignOutAlt} />
+                        </button>
+                        <span className="Tooltip_logout_text">Log out</span>
+                    </div>
                 </header>
             :   <header className="SleuthHeader_header_nologout">
                     <FontAwesomeIcon icon={faUserSecret} className="SleuthHeader_icon_nologout" />
