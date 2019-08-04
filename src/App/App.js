@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import ScrollToTop from '../ScrollToTop/ScrollToTop';
+// import ScrollToTop from '../ScrollToTop/ScrollToTop';
 import LandingPage from '../LandingPage/LandingPage';
 import LogInPage from '../LogInPage/LogInPage';
 import SignUpPage from '../SignUpPage/SignUpPage';
@@ -122,42 +122,40 @@ export default class App extends Component {
 						{error && <p className="red">{error}</p>}
 					</div>
 					<BrowserRouter>
-						<ScrollToTop>
-							<Switch>
-								<Route 
-									exact
-									path='/'
-									component={LandingPage}
-								/>
-								<Route
-									path='/login'
-									component={LogInPage}
-								/>
-								<Route
-									path='/signup'
-									component={SignUpPage}
-								/>
-								<Route
-									path='/dashboard'
-									component={UserDashBoard}
-								/>
-								<Route
-									path='/dashboard/add-job'
-									component={AddJobModal}
-								/>
-								<Route
-									path='/dashboard/edit-job'
-									component={EditJobModal}
-								/>
-								<Route
-									path='/dashboard/job'
-									component={ViewJobModal}
-								/>
-								<Route
-									component={PageNotFound}
-								/>
-							</Switch>
-						</ScrollToTop>
+						<Switch>
+							<Route 
+								exact
+								path='/'
+								component={LandingPage}
+							/>
+							<Route
+								path='/login'
+								component={LogInPage}
+							/>
+							<Route
+								path='/signup'
+								component={SignUpPage}
+							/>
+							<Route
+								path='/dashboard'
+								component={UserDashBoard}
+							/>
+							<Route
+								path='/dashboard/add-job'
+								component={AddJobModal}
+							/>
+							<Route
+								path='/dashboard/edit-job'
+								component={EditJobModal}
+							/>
+							<Route
+								path='/dashboard/job'
+								component={ViewJobModal}
+							/>
+							<Route
+								component={PageNotFound}
+							/>
+						</Switch>
 					</BrowserRouter>
 				</main>
 			</SleuthContext.Provider>

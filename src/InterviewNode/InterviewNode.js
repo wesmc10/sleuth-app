@@ -56,9 +56,9 @@ class InterviewNode extends Component {
     render() {
         const { job, applied, interview } = this.props;
         const jobStatus = interview 
-            ? <p>{`Interview on ${dateFns.format(interview, 'MMMM Do')}`}</p>
+            ? <p className="Job_status">{`Interview on ${dateFns.format(interview, 'MMMM Do')}`}</p>
             : applied
-                ? <p>{`Applied on ${dateFns.format(applied, 'MMMM Do')}`}</p>
+                ? <p className="Job_status">{`Applied on ${dateFns.format(applied, 'MMMM Do')}`}</p>
                 : ''
         ;
         const colorOfNode = job.application_status === 'Applied'
@@ -66,7 +66,7 @@ class InterviewNode extends Component {
             : job.application_status === 'Phone'
                 ? 'purple'
                 : job.application_status === 'Technical'
-                    ? 'yellow'
+                    ? 'pink'
                     : job.application_status === 'On-site'
                         ? 'blue'
                         : job.application_status === 'Offer'
@@ -90,8 +90,8 @@ class InterviewNode extends Component {
                     onClick={this.handleClickEdit}>
                         <FontAwesomeIcon icon={faEdit} />
                 </button>
-                <h3>{job && job.company}</h3>
-                <p>{job && job.position}</p>
+                <p className="Job_company">{job && job.company}</p>
+                <p className="Job_position">{job && job.position}</p>
                 {jobStatus}
             </div>   
         );

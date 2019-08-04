@@ -1,5 +1,12 @@
 .UserDashboard_main {
     height: 100%;
+    background: #f1f1f1;
+    position: relative;
+}
+
+.UserDashboard_main_search {
+    height: 100vh;
+    background: #f1f1f1;
     position: relative;
 }
 
@@ -8,7 +15,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin: 80px 15px 30px;
+    margin: 40px 15px;
 }
 
 .Search_user_jobs {
@@ -29,6 +36,7 @@
     font-size: 35px;
     top: 85px;
     right: 15px;
+    color: #197902;
 }
 
 .UserDashboard_add_job:hover {
@@ -43,5 +51,5 @@
 
 .UserDashboard_upcoming, .UserDashboard_applied, .UserDashboard_phone, .UserDashboard_technical,
 .UserDashboard_on_site, .UserDashboard_offers, .UserDashboard_rejected {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }

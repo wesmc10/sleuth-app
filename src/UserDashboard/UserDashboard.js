@@ -146,7 +146,7 @@ export default class UserDashboard extends Component {
         ;
 
         const userDashboard = !searchValue
-            ?   <div className="UserDashboard_main">
+            ?   <div className="Dashboard_no_search">
                     <SleuthHeader />
                     <div role="alert">
                         {error && <p className="red">{error}</p>}
@@ -176,37 +176,37 @@ export default class UserDashboard extends Component {
                             />
                         </section>
                         <section className="UserDashboard_applied">
-                            <h2 className="UserDashboard_applied title">Applied</h2>
+                            <h2 className="Applied title">Applied</h2>
                             <AppliedJobs
                                 displayModal={this.handleShowModal}
                             />
                         </section>
                         <section className="UserDashboard_phone">
-                            <h2 className="UserDashboard_phone title">Phone</h2>
+                            <h2 className="Phone title">Phone</h2>
                             <PhoneInterviews
                                 displayModal={this.handleShowModal}
                             />
                         </section>
                         <section className="UserDashboard_technical">
-                            <h2 className="UserDashboard_technical title">Technical</h2>
+                            <h2 className="Technical title">Technical</h2>
                             <TechnicalInterviews
                                 displayModal={this.handleShowModal}
                             />
                         </section>
                         <section className="UserDashboard_on_site">
-                            <h2 className="UserDashboard_on_site title">On-site</h2>
+                            <h2 className="On_site title">On-site</h2>
                             <OnSiteInterviews
                                 displayModal={this.handleShowModal}
                             />
                         </section>
                         <section className="UserDashboard_offers">
-                            <h2 className="UserDashboard_offers title">Offers</h2>
+                            <h2 className="Offers title">Offers</h2>
                             <JobOffers
                                 displayModal={this.handleShowModal}
                             />
                         </section>
                         <section className="UserDashboard_rejected">
-                            <h2 className="UserDashboard_rejected title">Rejected</h2>
+                            <h2 className="Rejected title">Rejected</h2>
                             <JobsRejected
                                 displayModal={this.handleShowModal}
                             />
@@ -217,7 +217,7 @@ export default class UserDashboard extends Component {
                     {renderViewJobModal}
                 </div>
 
-            :   <div className="UserDashboard_main">
+            :   <div className="Dashboard_search">
                     <SleuthHeader />
                     <div role="alert">
                         {error && <p className="red">{error}</p>}
@@ -240,7 +240,7 @@ export default class UserDashboard extends Component {
                     </button>
                     <div className="UserDashboard_flex_container">
                         <section className="UserDashboard_upcoming">
-                            <h2 className="Upcoming title">Search Results</h2>
+                            <h2 className="Search title">Search Results</h2>
                             <DashBoardSearchResults
                                 searchResults={matchingJobs}
                                 deleteJob={this.handleDeleteAMatchingJob}
@@ -254,7 +254,7 @@ export default class UserDashboard extends Component {
                 </div>
 
         return (
-            <div className="UserDashboard_main">
+            <div className={!searchValue ? "UserDashboard_main" : "UserDashboard_main_search"}>
                 {userDashboard}
             </div>
         );

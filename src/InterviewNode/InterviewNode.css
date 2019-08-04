@@ -1,5 +1,5 @@
 .User_upcoming_interview {
-    padding: 20px;
+    padding: 20px 40px 20px 20px;
     border: 1px solid black;
     border-radius: 25px;
     margin-bottom: 10px;
@@ -40,7 +40,7 @@ li {
 .Job_edit_button {
     position: absolute;
     bottom: 15px;
-    right: 20px;
+    right: 15px;
     font-size: 18px;
     background: none;
     border: none;
@@ -52,20 +52,28 @@ li {
     cursor: pointer;
 }
 
+.Job_status {
+    font-size: 12px;
+}
+
+.Job_company {
+    font-weight: bold;
+}
+
 .orange {
-    background: #f3a920;
+    background: #f7570d;
 }
 
 .purple {
-    background: #6b3a6b;
+    background: #772777;
 }
 
-.yellow {
-    background: #aaaa14;
+.pink {
+    background: #f31a75;
 }
 
 .blue {
-    background: #3d3d9b;
+    background: #2f2fa8;
 }
 
 .green {
