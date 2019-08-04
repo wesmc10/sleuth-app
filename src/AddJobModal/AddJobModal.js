@@ -193,74 +193,90 @@ export default class AddJobModal extends Component {
                                 <div role="alert">
                                     {error && <p className="red">{error}</p>}
                                 </div>
-                                <label htmlFor="company" className="company">Company</label>
-                                <input
-                                    type="text"
-                                    id="company"
-                                    name="company"
-                                    placeholder="Company"
-                                    required
-                                    onChange={this.handleCompanyChange}
-                                />
-                                <label htmlFor="position" className="position">Position</label>
-                                <input
-                                    type="text"
-                                    id="position"
-                                    name="position"
-                                    placeholder="Position"
-                                    required
-                                    onChange={this.handlePositionChange}
-                                />
-                                <label htmlFor="location" className="location">Location</label>
-                                <input
-                                    type="text"
-                                    id="location"
-                                    name="location"
-                                    placeholder="Location"
-                                    required
-                                    onChange={this.handleLocationChange}
-                                />
-                                <label htmlFor="salary" className="salary">Salary</label>
-                                <input
-                                    type="text"
-                                    id="salary"
-                                    name="salary"
-                                    placeholder="Salary"
-                                    onChange={this.handleSalaryChange}
-                                />
-                                <label htmlFor="date_applied" className="date_applied">Date Applied</label>
-                                <input
-                                    type="date"
-                                    id="date_applied"
-                                    name="date_applied"
-                                    required
-                                    onChange={this.handleDateAppliedChange}
-                                />
-                                <label htmlFor="interview_date" className="interview_date">Interview Date</label>
-                                <input
-                                    type="date"
-                                    id="interview_date"
-                                    name="interview_date"
-                                    onChange={this.handleInterviewDateChange}
-                                />
-                                <label htmlFor="application_status" className="application_status">Application Status</label>
-                                <select id="application_status" onChange={this.handleApplicationStatusChange}>
-                                    <option value="Applied">Applied</option>
-                                    <option value="Phone">Phone</option>
-                                    <option value="Technical">Technical</option>
-                                    <option value="On-site">On-site</option>
-                                    <option value="Offer">Offer</option>
-                                    <option value="Rejected">Rejected</option>
-                                </select>
-                                <label htmlFor="notes" className="notes">Notes</label>
-                                <textarea
-                                    type="text"
-                                    id="notes"
-                                    name="notes"
-                                    cols="30"
-                                    rows="5"
-                                    onChange={this.handleNotesChange}
-                                />
+                                <section className="Add_company">
+                                    <label htmlFor="company" className="company">Company</label>
+                                    <input
+                                        type="text"
+                                        id="company"
+                                        name="company"
+                                        placeholder="Company"
+                                        required
+                                        onChange={this.handleCompanyChange}
+                                    />
+                                </section>
+                                <section className="Add_position">
+                                    <label htmlFor="position" className="position">Position</label>
+                                    <input
+                                        type="text"
+                                        id="position"
+                                        name="position"
+                                        placeholder="Position"
+                                        required
+                                        onChange={this.handlePositionChange}
+                                    />
+                                </section>
+                                <section className="Add_location">
+                                    <label htmlFor="location" className="location">Location</label>
+                                    <input
+                                        type="text"
+                                        id="location"
+                                        name="location"
+                                        placeholder="Location"
+                                        required
+                                        onChange={this.handleLocationChange}
+                                    />
+                                </section>
+                                <section className="Add_salary">
+                                    <label htmlFor="salary" className="salary">Salary</label>
+                                    <input
+                                        type="text"
+                                        id="salary"
+                                        name="salary"
+                                        placeholder="Salary"
+                                        onChange={this.handleSalaryChange}
+                                    />
+                                </section>
+                                <section className="Add_date_applied">
+                                    <label htmlFor="date_applied" className="date_applied">Date Applied</label>
+                                    <input
+                                        type="date"
+                                        id="date_applied"
+                                        name="date_applied"
+                                        required
+                                        onChange={this.handleDateAppliedChange}
+                                    />
+                                </section>
+                                <section className="Add_interview_date">
+                                    <label htmlFor="interview_date" className="interview_date">Interview Date</label>
+                                    <input
+                                        type="date"
+                                        id="interview_date"
+                                        name="interview_date"
+                                        onChange={this.handleInterviewDateChange}
+                                    />
+                                </section>
+                                <section className="Add_application_status">
+                                    <label htmlFor="application_status" className="application_status">Application Status</label>
+                                    <select id="application_status" onChange={this.handleApplicationStatusChange}>
+                                        <option value="Applied">Applied</option>
+                                        <option value="Phone">Phone</option>
+                                        <option value="Technical">Technical</option>
+                                        <option value="On-site">On-site</option>
+                                        <option value="Offer">Offer</option>
+                                        <option value="Rejected">Rejected</option>
+                                    </select>
+                                </section>
+                                <section className="Add_notes">
+                                    <label htmlFor="notes" className="notes">Notes</label>
+                                    <textarea
+                                        type="text"
+                                        id="notes"
+                                        name="notes"
+                                        cols="26"
+                                        rows="5"
+                                        onChange={this.handleNotesChange}
+                                    />
+                                </section>
 
                                 <button type="submit" className="AddJobModal_submit_button">Add Job</button>
                             </section>
