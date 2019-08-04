@@ -1,0 +1,12 @@
+/* .Searched_jobs {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+} */
+
+.Number_of_jobs_searched {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 10px;
+}

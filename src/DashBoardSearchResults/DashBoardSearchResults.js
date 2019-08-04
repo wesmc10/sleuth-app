@@ -12,7 +12,7 @@ export default function DashBoardSearchResults(props) {
         
         if (searchResults.length === 0) {
             numberOfSearchResults = 0;
-            searchResults = 'No jobs match that company';
+            searchResults = 'No jobs match that search';
         } else {
             numberOfSearchResults = searchResults.length;
             searchResults = searchResults.map(job =>
@@ -28,12 +28,12 @@ export default function DashBoardSearchResults(props) {
         }
     } else {
         numberOfSearchResults = 0;
-        searchResults = 'No jobs match that company';
+        searchResults = 'No jobs match that search';
     }
 
     return (
-        <div className="Applied_jobs">
-            <div className="Number_of_jobs">
+        <div className="Searched_jobs">
+            <div className="Number_of_jobs_searched">
                 {numberOfSearchResults}
             </div>
             {searchResults}

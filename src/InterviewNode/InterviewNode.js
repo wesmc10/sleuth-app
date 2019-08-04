@@ -65,13 +65,11 @@ class InterviewNode extends Component {
             ? 'orange'
             : job.application_status === 'Phone'
                 ? 'purple'
-                : job.application_status === 'Technical'
-                    ? 'pink'
-                    : job.application_status === 'On-site'
-                        ? 'blue'
-                        : job.application_status === 'Offer'
-                            ? 'green'
-                            : 'bright_red'
+                : job.application_status === 'On-site'
+                    ? 'blue'
+                    : job.application_status === 'Offer'
+                        ? 'green'
+                        : 'bright_red'
         ;
 
         return (

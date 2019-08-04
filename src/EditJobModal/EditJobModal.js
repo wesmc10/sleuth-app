@@ -146,7 +146,7 @@ class EditJobModal extends Component {
             this.props.editJob({
                 ...editedJob,
                 id: clickedJob.id
-            });
+            });            
             this.props.closeModal('showEditJobModal');
         })
         .catch(res => {
@@ -307,7 +307,6 @@ class EditJobModal extends Component {
                                         onChange={this.handleApplicationStatusChange}>
                                             <option value="Applied">Applied</option>
                                             <option value="Phone">Phone</option>
-                                            <option value="Technical">Technical</option>
                                             <option value="On-site">On-site</option>
                                             <option value="Offer">Offer</option>
                                             <option value="Rejected">Rejected</option>

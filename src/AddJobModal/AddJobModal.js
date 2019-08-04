@@ -260,7 +260,6 @@ export default class AddJobModal extends Component {
                                     <select id="application_status" onChange={this.handleApplicationStatusChange}>
                                         <option value="Applied">Applied</option>
                                         <option value="Phone">Phone</option>
-                                        <option value="Technical">Technical</option>
                                         <option value="On-site">On-site</option>
                                         <option value="Offer">Offer</option>
                                         <option value="Rejected">Rejected</option>

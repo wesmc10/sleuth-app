@@ -49,8 +49,8 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.UserDashboard_upcoming, .UserDashboard_applied, .UserDashboard_phone, .UserDashboard_technical,
-.UserDashboard_on_site, .UserDashboard_offers, .UserDashboard_rejected {
+.UserDashboard_upcoming, .UserDashboard_applied, .UserDashboard_phone, .UserDashboard_on_site, 
+.UserDashboard_offers, .UserDashboard_rejected {
     margin-bottom: 40px;
 }
 
@@ -97,7 +97,11 @@
 }
 
 @media screen and (min-width: 1300px) {
-    .UserDashboard_flex_container {
+    #UserDashboard_job_search {
+        width: 350px;
+    }
+
+    .no_search {
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start;
@@ -105,6 +109,10 @@
     }
 
     .flex {
-        width: calc(100% / 8);
+        width: calc(100% / 6.7);
+    }
+
+    .flex_search {
+        width: 350px;
     }
 }

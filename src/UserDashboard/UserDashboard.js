@@ -8,7 +8,6 @@ import AddJobModal from '../AddJobModal/AddJobModal';
 import UpcomingInterviews from '../UpcomingInterviews/UpcomingInterviews';
 import AppliedJobs from '../AppliedJobs/AppliedJobs';
 import PhoneInterviews from '../PhoneInterviews/PhoneInterviews';
-import TechnicalInterviews from '../TechnicalInterviews/TechnicalInterviews';
 import OnSiteInterviews from '../OnSiteInterviews/OnSiteInterviews';
 import JobOffers from '../JobOffers/JobOffers';
 import JobsRejected from '../JobsRejected/JobsRejected';
@@ -167,7 +166,7 @@ export default class UserDashboard extends Component {
                         onClick={() => this.handleShowModal('showAddJobModal', 'add-job')}>
                             <FontAwesomeIcon icon={faPlusSquare} />
                     </button>
-                    <div className="UserDashboard_flex_container">
+                    <div className="UserDashboard_flex_container no_search">
                         <section className="UserDashboard_upcoming flex">
                             <h2 className="Upcoming title">Upcoming</h2>
                             <UpcomingInterviews
@@ -184,12 +183,6 @@ export default class UserDashboard extends Component {
                         <section className="UserDashboard_phone flex">
                             <h2 className="Phone title">Phone</h2>
                             <PhoneInterviews
-                                displayModal={this.handleShowModal}
-                            />
-                        </section>
-                        <section className="UserDashboard_technical flex">
-                            <h2 className="Technical title">Technical</h2>
-                            <TechnicalInterviews
                                 displayModal={this.handleShowModal}
                             />
                         </section>
@@ -239,7 +232,7 @@ export default class UserDashboard extends Component {
                             <FontAwesomeIcon icon={faPlusSquare} />
                     </button>
                     <div className="UserDashboard_flex_container">
-                        <section className="UserDashboard_upcoming">
+                        <section className="UserDashboard_upcoming flex_search">
                             <h2 className="Search title">Search Results</h2>
                             <DashBoardSearchResults
                                 searchResults={matchingJobs}

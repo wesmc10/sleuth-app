@@ -58,3 +58,9 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
 }
+
+@media screen and (min-width: 1300px) {
+    .SleuthHeader_logout {
+        font-size: 30px;
+    }
+}
