@@ -76,6 +76,7 @@
 
     .UserDashboard_add_job {
         top: 80px;
+        font-size: 45px;
     }
 }
 
@@ -88,6 +89,10 @@
 @media screen and (min-width: 700px) {
     #UserDashboard_job_search {
         width: 300px;
+    }
+
+    .UserDashboard_add_job {
+        font-size: 50px;
     }
 }
 
