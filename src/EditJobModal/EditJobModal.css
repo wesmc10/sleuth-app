@@ -2,7 +2,7 @@
     position: fixed;
     background-color: white;
     width: 80%;
-    max-width: 1000px;
+    max-width: 500px;
     height: auto;
     top: 50%;
     left: 50%;
@@ -11,18 +11,37 @@
     padding: 15px;
 }
 
-.EditJobModal_add_job {
+.EditJobModal_edit_job {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: baseline;
+    justify-content: center;
+    align-items: center;
     position: relative;
 }
 
 .EditJobModal_title {
-    font-size: 22px;
+    text-align: center;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+.EditJobModal_submit_button {
+    align-self: center;
+    background-color: #790255;
+    color: white;
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    font-weight: 700;
+    border: none;
+    margin-bottom: 30px;
 }
 
 .EditJobModal_submit_button:hover {
+    background-color: white;;
+    color: #790255;
     cursor: pointer;
+    border: 2px solid #790255;
 }

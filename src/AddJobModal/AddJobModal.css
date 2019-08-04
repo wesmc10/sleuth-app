@@ -71,7 +71,7 @@
     height: 30px;
 }
 
-.company, .position, .location, #salary, .date_applied, .interview_date, .application_status, .notes {
+.company, .position, .location, .salary, .date_applied, .interview_date, .application_status, .notes {
     margin-bottom: 2px;
     display: block;
 }
