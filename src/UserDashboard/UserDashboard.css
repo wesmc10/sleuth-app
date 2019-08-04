@@ -1,13 +1,13 @@
 .UserDashboard_main {
     height: 100%;
     background: #f1f1f1;
-    position: relative;
+    /* position: relative; */
 }
 
 .UserDashboard_main_search {
     height: 100vh;
     background: #f1f1f1;
-    position: relative;
+    /* position: relative; */
 }
 
 .UserDashboard_flex_container {
@@ -34,7 +34,7 @@
     background: none;
     border: none;
     font-size: 35px;
-    top: 85px;
+    top: -97px;
     right: 15px;
     color: #197902;
 }
@@ -52,6 +52,39 @@
 .UserDashboard_upcoming, .UserDashboard_applied, .UserDashboard_phone, .UserDashboard_on_site, 
 .UserDashboard_offers, .UserDashboard_rejected {
     margin-bottom: 40px;
+}
+
+.Tooltip_add_job {
+    position: relative;
+}
+
+.Tooltip_text {
+    visibility: hidden;
+    position: absolute;
+    font-size: 12px;
+    top: -92px;
+    right: 65px;
+    width: 100px;
+    text-align: center;
+    padding: 5px;
+    background: black;
+    border-radius: 10px;
+    z-index: 1;
+    color: white;
+}
+
+.Tooltip_text::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    right: -17px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+}
+
+.Tooltip_add_job:hover .Tooltip_text {
+    visibility: visible;
 }
 
 @media screen and (min-width: 450px) {
@@ -75,8 +108,13 @@
     }
 
     .UserDashboard_add_job {
-        top: 80px;
         font-size: 45px;
+        top: -77px;
+    }
+
+    .Tooltip_text {
+        top: -65px;
+        right: 70px;
     }
 }
 
@@ -93,6 +131,11 @@
 
     .UserDashboard_add_job {
         font-size: 50px;
+    }
+
+    .Tooltip_text {
+        top: -63px;
+        right: 73px;
     }
 }
 

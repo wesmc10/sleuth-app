@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-// import ScrollToTop from '../ScrollToTop/ScrollToTop';
 import LandingPage from '../LandingPage/LandingPage';
 import LogInPage from '../LogInPage/LogInPage';
 import SignUpPage from '../SignUpPage/SignUpPage';
