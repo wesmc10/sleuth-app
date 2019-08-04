@@ -1,6 +1,5 @@
 .User_upcoming_interview {
     padding: 20px 40px 20px 20px;
-    border: 1px solid black;
     border-radius: 25px;
     margin-bottom: 10px;
     position: relative;
@@ -58,6 +57,8 @@ li {
 
 .Job_company {
     font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
 }
 
 .orange {
@@ -82,4 +83,22 @@ li {
 
 .bright_red {
     background: #ce1b1b;
+}
+
+@media screen and (min-width: 700px) {
+    .User_upcoming_interview {
+        width: 300px;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .User_upcoming_interview {
+        width: 320px;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .User_upcoming_interview {
+        width: 100%;
+    }
 }

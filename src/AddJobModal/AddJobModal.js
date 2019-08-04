@@ -182,8 +182,8 @@ export default class AddJobModal extends Component {
                 <section ref={node => this.node = node} className="AddJobModal_section">
                     <form className="AddJobModal_form" onSubmit={this.handleFormSubmission}>
                         <fieldset>
+                            <legend className="AddJobModal_title">Add a Job</legend>
                             <section className="AddJobModal_add_job">
-                                <legend className="AddJobModal_title">Add a Job</legend>
                                 <button
                                     type="button"
                                     className="close_modal_button"
@@ -193,38 +193,42 @@ export default class AddJobModal extends Component {
                                 <div role="alert">
                                     {error && <p className="red">{error}</p>}
                                 </div>
-                                <label htmlFor="company">Company</label>
+                                <label htmlFor="company" className="company">Company</label>
                                 <input
                                     type="text"
                                     id="company"
                                     name="company"
+                                    placeholder="Company"
                                     required
                                     onChange={this.handleCompanyChange}
                                 />
-                                <label htmlFor="position">Position</label>
+                                <label htmlFor="position" className="position">Position</label>
                                 <input
                                     type="text"
                                     id="position"
                                     name="position"
+                                    placeholder="Position"
                                     required
                                     onChange={this.handlePositionChange}
                                 />
-                                <label htmlFor="location">Location</label>
+                                <label htmlFor="location" className="location">Location</label>
                                 <input
                                     type="text"
                                     id="location"
                                     name="location"
+                                    placeholder="Location"
                                     required
                                     onChange={this.handleLocationChange}
                                 />
-                                <label htmlFor="salary">Salary</label>
+                                <label htmlFor="salary" className="salary">Salary</label>
                                 <input
                                     type="text"
                                     id="salary"
                                     name="salary"
+                                    placeholder="Salary"
                                     onChange={this.handleSalaryChange}
                                 />
-                                <label htmlFor="date_applied">Date Applied</label>
+                                <label htmlFor="date_applied" className="date_applied">Date Applied</label>
                                 <input
                                     type="date"
                                     id="date_applied"
@@ -232,14 +236,14 @@ export default class AddJobModal extends Component {
                                     required
                                     onChange={this.handleDateAppliedChange}
                                 />
-                                <label htmlFor="interview_date">Interview Date</label>
+                                <label htmlFor="interview_date" className="interview_date">Interview Date</label>
                                 <input
                                     type="date"
                                     id="interview_date"
                                     name="interview_date"
                                     onChange={this.handleInterviewDateChange}
                                 />
-                                <label htmlFor="application_status">Application Status</label>
+                                <label htmlFor="application_status" className="application_status">Application Status</label>
                                 <select id="application_status" onChange={this.handleApplicationStatusChange}>
                                     <option value="Applied">Applied</option>
                                     <option value="Phone">Phone</option>
@@ -248,7 +252,7 @@ export default class AddJobModal extends Component {
                                     <option value="Offer">Offer</option>
                                     <option value="Rejected">Rejected</option>
                                 </select>
-                                <label htmlFor="notes">Notes</label>
+                                <label htmlFor="notes" className="notes">Notes</label>
                                 <textarea
                                     type="text"
                                     id="notes"

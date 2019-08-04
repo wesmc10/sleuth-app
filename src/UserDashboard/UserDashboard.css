@@ -53,3 +53,53 @@
 .UserDashboard_on_site, .UserDashboard_offers, .UserDashboard_rejected {
     margin-bottom: 40px;
 }
+
+@media screen and (min-width: 450px) {
+    #UserDashboard_job_search {
+        width: 250px;
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 550px) {
+    .Search_user_jobs {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .search {
+        margin-right: 10px;
+        font-size: 18px;
+    }
+
+    .UserDashboard_add_job {
+        top: 80px;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .Search_user_jobs {
+        justify-content: center;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    #UserDashboard_job_search {
+        width: 300px;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .UserDashboard_flex_container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin: 60px 15px 40px;
+    }
+
+    .flex {
+        width: calc(100% / 8);
+    }
+}

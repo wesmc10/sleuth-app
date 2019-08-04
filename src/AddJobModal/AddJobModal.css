@@ -12,14 +12,13 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background: rgb(25, 121, 2, 0.7);
 }
 
 .AddJobModal_section {
     position: fixed;
-    background-color: white;
-    width: 80%;
-    max-width: 1000px;
+    background: white;
+    max-width: 500px;
     height: auto;
     top: 50%;
     left: 50%;
@@ -31,21 +30,23 @@
 .AddJobModal_add_job {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: baseline;
     position: relative;
 }
 
 .AddJobModal_title {
-    font-size: 22px;
+    text-align: left;
+    padding: 0;
+    margin-bottom: 15px;
 }
 
 .close_modal_button {
     position: absolute;
-    top: 1px;
+    top: -55px;
     right: 3px;
     border: none;
-    background: white;
+    background: none;
     font-size: 18px;
 }
 
@@ -54,9 +55,41 @@
 }
 
 #notes {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+#company, #position, #location, #salary, #date_applied, #interview_date, #application_status {
+    margin-bottom: 10px;
+    height: 25px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#application_status {
+    height: 30px;
+}
+
+.company, .position, .location, #salary, .date_applied, .interview_date, .application_status, .notes {
+    margin-bottom: 2px;
+}
+
+.AddJobModal_submit_button {
+    align-self: center;
+    background-color: #790255;
+    color: white;
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    font-weight: 700;
+    border: none;
+    margin-bottom: 30px;
 }
 
 .AddJobModal_submit_button:hover {
+    background-color: white;;
+    color: #790255;
     cursor: pointer;
+    border: 2px solid #790255;
 }

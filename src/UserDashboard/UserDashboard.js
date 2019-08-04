@@ -168,44 +168,44 @@ export default class UserDashboard extends Component {
                             <FontAwesomeIcon icon={faPlusSquare} />
                     </button>
                     <div className="UserDashboard_flex_container">
-                        <section className="UserDashboard_upcoming">
-                            <h2 className="Upcoming title">Upcoming Interviews</h2>
+                        <section className="UserDashboard_upcoming flex">
+                            <h2 className="Upcoming title">Upcoming</h2>
                             <UpcomingInterviews
                                 today={today}
                                 displayModal={this.handleShowModal}
                             />
                         </section>
-                        <section className="UserDashboard_applied">
+                        <section className="UserDashboard_applied flex">
                             <h2 className="Applied title">Applied</h2>
                             <AppliedJobs
                                 displayModal={this.handleShowModal}
                             />
                         </section>
-                        <section className="UserDashboard_phone">
+                        <section className="UserDashboard_phone flex">
                             <h2 className="Phone title">Phone</h2>
                             <PhoneInterviews
                                 displayModal={this.handleShowModal}
                             />
                         </section>
-                        <section className="UserDashboard_technical">
+                        <section className="UserDashboard_technical flex">
                             <h2 className="Technical title">Technical</h2>
                             <TechnicalInterviews
                                 displayModal={this.handleShowModal}
                             />
                         </section>
-                        <section className="UserDashboard_on_site">
+                        <section className="UserDashboard_on_site flex">
                             <h2 className="On_site title">On-site</h2>
                             <OnSiteInterviews
                                 displayModal={this.handleShowModal}
                             />
                         </section>
-                        <section className="UserDashboard_offers">
+                        <section className="UserDashboard_offers flex">
                             <h2 className="Offers title">Offers</h2>
                             <JobOffers
                                 displayModal={this.handleShowModal}
                             />
                         </section>
-                        <section className="UserDashboard_rejected">
+                        <section className="UserDashboard_rejected flex">
                             <h2 className="Rejected title">Rejected</h2>
                             <JobsRejected
                                 displayModal={this.handleShowModal}
