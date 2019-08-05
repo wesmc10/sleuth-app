@@ -15,6 +15,7 @@ class InterviewNode extends Component {
         document.addEventListener('mousedown', this.handleClickJobNode);
     }
 
+    // if the user clicks on the node, but not on any of the buttons on the node
     handleClickJobNode = (e) => {
         if (this.node && this.node.contains(e.target) && !this.edit_button.contains(e.target) && !this.delete_button.contains(e.target)) {
             this.context.addClickedJob(this.props.job);

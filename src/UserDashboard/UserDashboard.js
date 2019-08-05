@@ -144,6 +144,8 @@ export default class UserDashboard extends Component {
             :   ''
         ;
 
+        // determines what to render on dashboard depending on whether or not the user is using
+        // the search bar
         const userDashboard = !searchValue
             ?   <div className="Dashboard_no_search">
                     <SleuthHeader />

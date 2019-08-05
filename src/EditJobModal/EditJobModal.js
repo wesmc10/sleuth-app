@@ -30,6 +30,8 @@ class EditJobModal extends Component {
         let clickedJob = sessionStorage.getItem('clickedJob');
         clickedJob = JSON.parse(clickedJob);
 
+        // do not open modal to edit job if the user has not clicked on a job
+        // for use if user searches edit job route
         if (clickedJob && Object.entries(clickedJob).length === 0) {
             this.props.closeModal('showEditJobModal');
             this.props.history.push('/dashboard');
@@ -61,6 +63,7 @@ class EditJobModal extends Component {
         document.removeEventListener('mousedown', this.handleClick);
     }
 
+    // close modal if user clicks outside of it
     handleClick = (e) => {
         if (!this.node.contains(e.target)) {
             this.setState({

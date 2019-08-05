@@ -20,6 +20,8 @@ export default class App extends Component {
 		error: null
 	};
 
+	// when app mounts, set state equal to relevant values in storage
+    // primarily for page refresh
 	componentDidMount() {
 		this.hydrateAppStateWithSessionStorage();
 	}

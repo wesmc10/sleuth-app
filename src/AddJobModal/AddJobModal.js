@@ -29,6 +29,7 @@ export default class AddJobModal extends Component {
         document.removeEventListener('mousedown', this.handleClick);
     }
 
+    // close modal if user clicks outside of it
     handleClick = (e) => {
         if (!this.node.contains(e.target)) {
             this.setState({
