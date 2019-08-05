@@ -47,6 +47,5 @@ export default class LandingPage extends Component {
                 </div>
             </div>
         );
-
     }
 }

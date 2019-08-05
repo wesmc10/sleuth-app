@@ -1,18 +1,22 @@
 .LandingPage_main {
     position: relative;
-    height: 100vh;
-    color: white;
     background: url('https://cdn4.iconfinder.com/data/icons/political-elections/50/29-512.png') no-repeat top center fixed, 
         linear-gradient(#197902, black);
+    -webkit-background-size: 140%;
+    -moz-background-size: 140%;
+    -o-background-size: 140%;
     background-size: 140%;
+    background-attachment: fixed;
+    min-height: 800px;
 }
 
 .LandingPage_flex_container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
+    margin-bottom: 50px;
 }
 
 .LandingPage_content_section {

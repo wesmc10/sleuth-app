@@ -1,15 +1,14 @@
-.LogInPage_main {
-    height: 100vh;
-    color: white;
+/* .LogInPage_main {
+    height: 100vh;;
     background: linear-gradient(#197902, black);
-}
+} */
 
 .LogInPage_login_section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 150px 15px 0;
+    margin: 80px 15px 0;
 }
 
 .LogInPage_login_button {
@@ -37,6 +36,7 @@
 
 .Account_question {
     text-align: center;
+    margin-bottom: 100px;
 }
 
 .SignUp_link {
