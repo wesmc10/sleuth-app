@@ -60,12 +60,16 @@
     margin-bottom: 25px;
 }
 
-#company, #position, #location, #salary, #date_applied, #interview_date, #application_status {
+#company, #position, #location {
     margin-bottom: 10px;
     height: 25px;
     border-radius: 5px;
     padding: 5px;
     width: 200px;
+}
+
+#salary, #date_applied, #interview_date, #application_status {
+    width: 120px;
 }
 
 #application_status {
