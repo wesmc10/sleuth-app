@@ -10,6 +10,7 @@ import PageNotFound from '../PageNotFound/PageNotFound';
 import AddJobModal from '../AddJobModal/AddJobModal';
 import EditJobModal from '../EditJobModal/EditJobModal';
 import ViewJobModal from '../ViewJobModal/ViewJobModal';
+import ScrollToTop from '../ScrollToTop/ScrollToTop';
 
 export default class App extends Component {
 	state = {
@@ -121,40 +122,42 @@ export default class App extends Component {
 						{error && <p className="red">{error}</p>}
 					</div>
 					<BrowserRouter>
-						<Switch>
-							<Route 
-								exact
-								path='/'
-								component={LandingPage}
-							/>
-							<Route
-								path='/login'
-								component={LogInPage}
-							/>
-							<Route
-								path='/signup'
-								component={SignUpPage}
-							/>
-							<Route
-								path='/dashboard'
-								component={UserDashBoard}
-							/>
-							<Route
-								path='/dashboard/add-job'
-								component={AddJobModal}
-							/>
-							<Route
-								path='/dashboard/edit-job'
-								component={EditJobModal}
-							/>
-							<Route
-								path='/dashboard/job'
-								component={ViewJobModal}
-							/>
-							<Route
-								component={PageNotFound}
-							/>
-						</Switch>
+						<ScrollToTop>
+							<Switch>
+								<Route 
+									exact
+									path='/'
+									component={LandingPage}
+								/>
+								<Route
+									path='/login'
+									component={LogInPage}
+								/>
+								<Route
+									path='/signup'
+									component={SignUpPage}
+								/>
+								<Route
+									path='/dashboard'
+									component={UserDashBoard}
+								/>
+								<Route
+									path='/dashboard/add-job'
+									component={AddJobModal}
+								/>
+								<Route
+									path='/dashboard/edit-job'
+									component={EditJobModal}
+								/>
+								<Route
+									path='/dashboard/job'
+									component={ViewJobModal}
+								/>
+								<Route
+									component={PageNotFound}
+								/>
+							</Switch>
+						</ScrollToTop>
 					</BrowserRouter>
 				</main>
 			</SleuthContext.Provider>
