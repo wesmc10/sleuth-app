@@ -22,7 +22,7 @@
 ![Edit Job](./src/Images/Sleuth-edit.jpg "Edit job")
 
 ### Search Job:
-![Search jobs](./src/Images/Sleuth-searh.jpg "Search jobs")
+![Search jobs](./src/Images/Sleuth-search.jpg "Search jobs")
 
 ## Motivation
 It can be difficult for job hunters to keep track of all of the jobs they've applied to, so I wanted to create an
