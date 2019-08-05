@@ -20,7 +20,7 @@
     position: fixed;
     background: white;
     width: 80%;
-    max-width: 500px;
+    max-width: 600px;
     height: auto;
     top: 50%;
     left: 50%;
@@ -99,8 +99,12 @@
 }
 
 @media screen and (min-width: 550px) {
-    #company, #position, #location, #salary, #date_applied, #interview_date, #application_status, #notes {
-        width: 250px;
+    #company, #position, #location, #notes {
+        width: 300px;
+    }
+
+    #salary, #date_applied, #interview_date, #application_status {
+        width: 130px;
     }
 
     .AddJobModal_submit_button {
@@ -108,8 +112,12 @@
     }
 }
 
-@media screen and (min-width: 550px) {
-    #company, #position, #location, #salary, #date_applied, #interview_date, #application_status, #notes {
-        width: 300px;
+@media screen and (min-width: 750px) {
+    #company, #position, #location, #notes {
+        width: 350px;
+    }
+
+    #salary, #date_applied, #interview_date, #application_status {
+        width: 160px;
     }
 }

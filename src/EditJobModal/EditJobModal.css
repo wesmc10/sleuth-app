@@ -2,7 +2,7 @@
     position: fixed;
     background-color: white;
     width: 80%;
-    max-width: 500px;
+    max-width: 600px;
     height: auto;
     top: 50%;
     left: 50%;
@@ -44,4 +44,15 @@
     color: #790255;
     cursor: pointer;
     border: 2px solid #790255;
+}
+
+.Edit_status_and_salary, .Edit_dates {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Row_date_applied, .Row_salary {
+    margin-right: 30px;
 }

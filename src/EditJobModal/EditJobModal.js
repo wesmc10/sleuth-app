@@ -276,61 +276,65 @@ class EditJobModal extends Component {
                                         onChange={this.handleLocationChange}
                                     />
                                 </section>
-                                <section className="Edit_salary">
-                                    <label htmlFor="salary" className="salary">Salary</label>
-                                    <input
-                                        type="text"
-                                        id="salary"
-                                        name="salary"
-                                        value={salary}
-                                        onChange={this.handleSalaryChange}
-                                    />
+                                <section className="Edit_dates">
+                                    <div className="Row_date_applied">
+                                        <label htmlFor="date_applied" className="date_applied">Date Applied</label>
+                                        <input
+                                            type="date"
+                                            id="date_applied"
+                                            name="date_applied"
+                                            value={dateApplied}
+                                            required
+                                            onChange={this.handleDateAppliedChange}
+                                        />
+                                    </div>
+                                    <div className="Row_interview_date">
+                                        <label htmlFor="interview_date" className="interview_date">Interview Date</label>
+                                        <input
+                                            type="date"
+                                            id="interview_date"
+                                            name="interview_date"
+                                            value={interviewDate}
+                                            onChange={this.handleInterviewDateChange}
+                                        />
+                                    </div>
                                 </section>
-                                <section className="Edit_date_applied">
-                                    <label htmlFor="date_applied" className="date_applied">Date Applied</label>
-                                    <input
-                                        type="date"
-                                        id="date_applied"
-                                        name="date_applied"
-                                        value={dateApplied}
-                                        required
-                                        onChange={this.handleDateAppliedChange}
-                                    />
-                                </section>
-                                <section className="Edit_interview_date">
-                                    <label htmlFor="interview_date" className="interview_date">Interview Date</label>
-                                    <input
-                                        type="date"
-                                        id="interview_date"
-                                        name="interview_date"
-                                        value={interviewDate}
-                                        onChange={this.handleInterviewDateChange}
-                                    />
-                                </section>
-                                <section className="Edit_application_status">
-                                <label htmlFor="application_status" className="application_status">Application Status</label>
-                                    <select 
-                                        id="application_status" 
-                                        value={applicationStatus} 
-                                        onChange={this.handleApplicationStatusChange}>
-                                            <option value="Applied">Applied</option>
-                                            <option value="Phone">Phone</option>
-                                            <option value="On-site">On-site</option>
-                                            <option value="Offer">Offer</option>
-                                            <option value="Rejected">Rejected</option>
-                                    </select>
+                                <section className="Edit_status_and_salary">
+                                    <div className="Row_salary">
+                                        <label htmlFor="salary" className="salary">Salary</label>
+                                        <input
+                                            type="text"
+                                            id="salary"
+                                            name="salary"
+                                            value={salary}
+                                            onChange={this.handleSalaryChange}
+                                        />
+                                    </div>
+                                    <div className="Row_status">
+                                        <label htmlFor="application_status" className="application_status">Application Status</label>
+                                        <select 
+                                            id="application_status" 
+                                            value={applicationStatus} 
+                                            onChange={this.handleApplicationStatusChange}>
+                                                <option value="Applied">Applied</option>
+                                                <option value="Phone">Phone</option>
+                                                <option value="On-site">On-site</option>
+                                                <option value="Offer">Offer</option>
+                                                <option value="Rejected">Rejected</option>
+                                        </select>
+                                    </div>
                                 </section>
                                 <section className="Edit_notes">
-                                <label htmlFor="notes" className="notes">Notes</label>
-                                <textarea
-                                    type="text"
-                                    id="notes"
-                                    name="notes"
-                                    value={notes}
-                                    cols="26"
-                                    rows="5"
-                                    onChange={this.handleNotesChange}
-                                />
+                                    <label htmlFor="notes" className="notes">Notes</label>
+                                    <textarea
+                                        type="text"
+                                        id="notes"
+                                        name="notes"
+                                        value={notes}
+                                        cols="26"
+                                        rows="5"
+                                        onChange={this.handleNotesChange}
+                                    />
                                 </section>
 
                                 <button type="submit" className="EditJobModal_submit_button">Edit Job</button>
