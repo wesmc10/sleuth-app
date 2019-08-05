@@ -228,12 +228,15 @@ export default class UserDashboard extends Component {
                             onChange={this.handleChangeSearchValue}
                         />
                     </section>
-                    <button 
-                        type="button"
-                        className="UserDashboard_add_job"
-                        onClick={() => this.handleShowModal('showAddJobModal', 'add-job')}>
-                            <FontAwesomeIcon icon={faPlusSquare} />
-                    </button>
+                    <div className="Tooltip_add_job">
+                        <button 
+                            type="button"
+                            className="UserDashboard_add_job"
+                            onClick={() => this.handleShowModal('showAddJobModal', 'add-job')}>
+                                <FontAwesomeIcon icon={faPlusSquare} />
+                        </button>
+                        <span className="Tooltip_text">Add a job</span>
+                    </div>
                     <div className="UserDashboard_flex_container">
                         <section className="UserDashboard_upcoming flex_search">
                             <h2 className="Search title">Search Results</h2>

@@ -99,7 +99,7 @@ export default class SignUpPage extends Component {
                 <SleuthHeader />              
                 <form className="SignUpPage_form" onSubmit={this.handleFormSubmission}>
                     <fieldset>
-                        <legend>Sign Up</legend>
+                        <legend align="center">Sign Up</legend>
                         <section className="SignUpPage_signup_section">
                             <div role="alert">
 					            {error && <p className="red">{error}</p>}

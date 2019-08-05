@@ -87,7 +87,7 @@ export default class LogInPage extends Component {
                 <SleuthHeader />
                 <form className="LogInPage_form" onSubmit={this.handleFormSubmission}>
                     <fieldset>
-                        <legend>Log In</legend>
+                        <legend align="center">Log In</legend>
                         <section className="LogInPage_login_section">
                             <div role="alert">
                                 {error && <p className="red">{error}</p>}

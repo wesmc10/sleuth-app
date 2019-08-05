@@ -12,7 +12,7 @@ export default function DashBoardSearchResults(props) {
         
         if (searchResults.length === 0) {
             numberOfSearchResults = 0;
-            searchResults = 'No jobs match that search';
+            searchResults = <p className="No_matches">No jobs match that search</p>;
         } else {
             numberOfSearchResults = searchResults.length;
             searchResults = searchResults.map(job =>
@@ -28,7 +28,7 @@ export default function DashBoardSearchResults(props) {
         }
     } else {
         numberOfSearchResults = 0;
-        searchResults = 'No jobs match that search';
+        searchResults = <p className="No_matches">No jobs match that search</p>;
     }
 
     return (

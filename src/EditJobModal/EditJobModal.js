@@ -232,7 +232,7 @@ class EditJobModal extends Component {
                 <section ref={node => this.node = node} className="EditJobModal_section">
                     <form className="EditJobModal_form" onSubmit={this.handleFormSubmission}>
                         <fieldset>
-                            <legend className="EditJobModal_title">Edit Job</legend>
+                            <legend className="EditJobModal_title" align="center">Edit Job</legend>
                             <section className="EditJobModal_edit_job">
                                 <button
                                     type="button"

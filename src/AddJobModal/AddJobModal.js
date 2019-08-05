@@ -182,7 +182,7 @@ export default class AddJobModal extends Component {
                 <section ref={node => this.node = node} className="AddJobModal_section">
                     <form className="AddJobModal_form" onSubmit={this.handleFormSubmission}>
                         <fieldset>
-                            <legend className="AddJobModal_title">Add a Job</legend>
+                            <legend className="AddJobModal_title" align="center">Add a Job</legend>
                             <section className="AddJobModal_add_job">
                                 <button
                                     type="button"

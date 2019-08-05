@@ -1,3 +1,9 @@
+.PageNotFound_main {
+    background: linear-gradient(#197902, black);
+    height: 100vh;
+    color: white;
+}
+
 .PageNotFound_content_section {
     display: flex;
     flex-direction: column;
@@ -7,5 +13,30 @@
 }
 
 .PageNotFound_title {
-    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+@media screen and (min-width: 600px) {
+    .PageNotFound_title {
+        font-size: 35px;
+        margin-bottom: 40px;
+    }
+
+    .PageNotFound_suggestion {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .PageNotFound_title {
+        font-size: 40px;
+        margin-top: 50px;
+        margin-bottom: 40px;
+    }
+
+    .PageNotFound_suggestion {
+        font-size: 24px;
+    }
 }
