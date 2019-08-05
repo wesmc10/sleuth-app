@@ -244,7 +244,7 @@ class EditJobModal extends Component {
                                     {error && <p className="red">{error}</p>}
                                 </div>
                                 <section className="Edit_company">
-                                    <label htmlFor="company" className="company">Company</label>
+                                    <label htmlFor="company" className="company edit_label">Company</label>
                                     <input
                                         type="text"
                                         id="company"
@@ -255,7 +255,7 @@ class EditJobModal extends Component {
                                     />
                                 </section>
                                 <section className="Edit_position">
-                                    <label htmlFor="position" className="position">Position</label>
+                                    <label htmlFor="position" className="position edit_label">Position</label>
                                     <input
                                         type="text"
                                         id="position"
@@ -266,7 +266,7 @@ class EditJobModal extends Component {
                                     />
                                 </section>
                                 <section className="Edit_location">
-                                    <label htmlFor="location" className="location">Location</label>
+                                    <label htmlFor="location" className="location edit_label">Location</label>
                                     <input
                                         type="text"
                                         id="location"
@@ -278,7 +278,7 @@ class EditJobModal extends Component {
                                 </section>
                                 <section className="Edit_dates">
                                     <div className="Row_date_applied">
-                                        <label htmlFor="date_applied" className="date_applied">Applied</label>
+                                        <label htmlFor="date_applied" className="date_applied edit_label">Applied</label>
                                         <input
                                             type="date"
                                             id="date_applied"
@@ -289,7 +289,7 @@ class EditJobModal extends Component {
                                         />
                                     </div>
                                     <div className="Row_interview_date">
-                                        <label htmlFor="interview_date" className="interview_date">Interview</label>
+                                        <label htmlFor="interview_date" className="interview_date edit_label">Interview</label>
                                         <input
                                             type="date"
                                             id="interview_date"
@@ -301,7 +301,7 @@ class EditJobModal extends Component {
                                 </section>
                                 <section className="Edit_status_and_salary">
                                     <div className="Row_salary">
-                                        <label htmlFor="salary" className="salary">Salary</label>
+                                        <label htmlFor="salary" className="salary edit_label">Salary</label>
                                         <input
                                             type="text"
                                             id="salary"
@@ -311,7 +311,7 @@ class EditJobModal extends Component {
                                         />
                                     </div>
                                     <div className="Row_status">
-                                        <label htmlFor="application_status" className="application_status">Status</label>
+                                        <label htmlFor="application_status" className="application_status edit_label">Status</label>
                                         <select 
                                             id="application_status" 
                                             value={applicationStatus} 
@@ -325,7 +325,7 @@ class EditJobModal extends Component {
                                     </div>
                                 </section>
                                 <section className="Edit_notes">
-                                    <label htmlFor="notes" className="notes">Notes</label>
+                                    <label htmlFor="notes" className="notes edit_label">Notes</label>
                                     <textarea
                                         type="text"
                                         id="notes"

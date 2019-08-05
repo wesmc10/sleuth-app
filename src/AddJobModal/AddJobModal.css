@@ -19,7 +19,7 @@
 .AddJobModal_section {
     position: fixed;
     background: white;
-    width: 80%;
+    width: 100%;
     max-width: 600px;
     height: auto;
     top: 50%;
@@ -41,12 +41,13 @@
     text-align: center;
     padding: 0;
     margin-bottom: 15px;
+    font-size: 22px;
 }
 
 .close_modal_button {
     position: absolute;
-    top: -60px;
-    right: 3px;
+    top: -50px;
+    right: 10px;
     border: none;
     background: none;
     font-size: 18px;
@@ -58,6 +59,7 @@
 
 #notes {
     margin-bottom: 25px;
+    width: 280px;
 }
 
 #company, #position, #location {
@@ -65,18 +67,26 @@
     height: 25px;
     border-radius: 5px;
     padding: 5px;
-    width: 200px;
+    width: 280px;
 }
 
 #salary, #date_applied, #interview_date, #application_status {
-    width: 120px;
+    width: 138px;
     height: 25px;
     border-radius: 5px;
     padding: 5px;
 }
 
+#salary, #date_applied {
+    margin-right: 5px;
+}
+
 #application_status {
     height: 30px;
+}
+
+#date_applied, #interview_date {
+    margin-bottom: 5px;
 }
 
 .company, .position, .location, .salary, .date_applied, .interview_date, .application_status, .notes {
@@ -88,8 +98,8 @@
     align-self: center;
     background-color: #790255;
     color: white;
-    width: 200px;
-    height: 50px;
+    width: 180px;
+    height: 40px;
     font-size: 16px;
     letter-spacing: 1px;
     border-radius: 10px;
@@ -105,17 +115,38 @@
     border: 2px solid #790255;
 }
 
+.Add_status_and_salary, .Add_dates {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add_label {
+    font-size: 15px;
+}
+
+@media screen and (min-width: 400px) {
+    .AddJobModal_section {
+        width: 90%;
+    }
+}
+
 @media screen and (min-width: 550px) {
     #company, #position, #location, #notes {
         width: 300px;
     }
 
     #salary, #date_applied, #interview_date, #application_status {
-        width: 130px;
+        width: 140px;
     }
 
     .AddJobModal_submit_button {
         width: 250px;
+    }
+
+    #salary, #date_applied {
+        margin-right: 20px;
     }
 }
 

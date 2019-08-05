@@ -1,7 +1,7 @@
 .EditJobModal_section {
     position: fixed;
     background-color: white;
-    width: 90%;
+    width: 100%;
     max-width: 600px;
     height: auto;
     top: 50%;
@@ -23,14 +23,15 @@
     text-align: center;
     padding: 0;
     margin-bottom: 15px;
+    font-size: 22px;
 }
 
 .EditJobModal_submit_button {
     align-self: center;
     background-color: #790255;
     color: white;
-    width: 200px;
-    height: 50px;
+    width: 180px;
+    height: 40px;
     font-size: 16px;
     letter-spacing: 1px;
     border-radius: 10px;
@@ -53,8 +54,24 @@
     align-items: center;
 }
 
+.edit_label {
+    font-size: 15px;
+}
+
+@media screen and (min-width: 400px) {
+    .EditJobModal_section {
+        width: 90%;
+    }
+}
+
+@media screen and (min-width: 550px) {
+    .EditJobModal_submit_button {
+        width: 250px;
+    }
+}
+
 @media screen and (min-width: 750px) {    
     .Row_date_applied, .Row_salary {
-        margin-right: 30px;
+        margin-right: 12px;
     }
 }

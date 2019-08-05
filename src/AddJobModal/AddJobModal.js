@@ -194,7 +194,7 @@ export default class AddJobModal extends Component {
                                     {error && <p className="red">{error}</p>}
                                 </div>
                                 <section className="Add_company">
-                                    <label htmlFor="company" className="company">Company</label>
+                                    <label htmlFor="company" className="company add_label">Company</label>
                                     <input
                                         type="text"
                                         id="company"
@@ -205,7 +205,7 @@ export default class AddJobModal extends Component {
                                     />
                                 </section>
                                 <section className="Add_position">
-                                    <label htmlFor="position" className="position">Position</label>
+                                    <label htmlFor="position" className="position add_label">Position</label>
                                     <input
                                         type="text"
                                         id="position"
@@ -216,7 +216,7 @@ export default class AddJobModal extends Component {
                                     />
                                 </section>
                                 <section className="Add_location">
-                                    <label htmlFor="location" className="location">Location</label>
+                                    <label htmlFor="location" className="location add_label">Location</label>
                                     <input
                                         type="text"
                                         id="location"
@@ -225,48 +225,52 @@ export default class AddJobModal extends Component {
                                         required
                                         onChange={this.handleLocationChange}
                                     />
+                                </section>                                
+                                <section className="Add_dates">
+                                    <div className="Row_date_applied">
+                                        <label htmlFor="date_applied" className="date_applied add_label">Applied</label>
+                                        <input
+                                            type="date"
+                                            id="date_applied"
+                                            name="date_applied"
+                                            required
+                                            onChange={this.handleDateAppliedChange}
+                                        />
+                                    </div>
+                                    <div className="Row_interview_date">
+                                        <label htmlFor="interview_date" className="interview_date add_label">Interview</label>
+                                        <input
+                                            type="date"
+                                            id="interview_date"
+                                            name="interview_date"
+                                            onChange={this.handleInterviewDateChange}
+                                        />
+                                    </div>
                                 </section>
-                                <section className="Add_salary">
-                                    <label htmlFor="salary" className="salary">Salary</label>
-                                    <input
-                                        type="text"
-                                        id="salary"
-                                        name="salary"
-                                        placeholder="Salary"
-                                        onChange={this.handleSalaryChange}
-                                    />
-                                </section>
-                                <section className="Add_date_applied">
-                                    <label htmlFor="date_applied" className="date_applied">Date Applied</label>
-                                    <input
-                                        type="date"
-                                        id="date_applied"
-                                        name="date_applied"
-                                        required
-                                        onChange={this.handleDateAppliedChange}
-                                    />
-                                </section>
-                                <section className="Add_interview_date">
-                                    <label htmlFor="interview_date" className="interview_date">Interview Date</label>
-                                    <input
-                                        type="date"
-                                        id="interview_date"
-                                        name="interview_date"
-                                        onChange={this.handleInterviewDateChange}
-                                    />
-                                </section>
-                                <section className="Add_application_status">
-                                    <label htmlFor="application_status" className="application_status">Application Status</label>
-                                    <select id="application_status" onChange={this.handleApplicationStatusChange}>
-                                        <option value="Applied">Applied</option>
-                                        <option value="Phone">Phone</option>
-                                        <option value="On-site">On-site</option>
-                                        <option value="Offer">Offer</option>
-                                        <option value="Rejected">Rejected</option>
-                                    </select>
+                                <section className="Add_status_and_salary">
+                                    <div className="Row_salary">
+                                        <label htmlFor="salary" className="salary add_label">Salary</label>
+                                        <input
+                                            type="text"
+                                            id="salary"
+                                            name="salary"
+                                            placeholder="Salary"
+                                            onChange={this.handleSalaryChange}
+                                        />
+                                    </div>
+                                    <div className="Row_status">
+                                        <label htmlFor="application_status" className="application_status add_label">Status</label>
+                                        <select id="application_status" onChange={this.handleApplicationStatusChange}>
+                                            <option value="Applied">Applied</option>
+                                            <option value="Phone">Phone</option>
+                                            <option value="On-site">On-site</option>
+                                            <option value="Offer">Offer</option>
+                                            <option value="Rejected">Rejected</option>
+                                        </select>
+                                    </div>
                                 </section>
                                 <section className="Add_notes">
-                                    <label htmlFor="notes" className="notes">Notes</label>
+                                    <label htmlFor="notes" className="notes add_label">Notes</label>
                                     <textarea
                                         type="text"
                                         id="notes"
