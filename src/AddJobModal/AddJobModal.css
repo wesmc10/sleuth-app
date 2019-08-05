@@ -70,6 +70,9 @@
 
 #salary, #date_applied, #interview_date, #application_status {
     width: 120px;
+    height: 25px;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 #application_status {

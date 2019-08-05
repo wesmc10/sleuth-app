@@ -53,8 +53,7 @@
     align-items: center;
 }
 
-@media screen and (min-width: 750px) {
-    
+@media screen and (min-width: 750px) {    
     .Row_date_applied, .Row_salary {
         margin-right: 30px;
     }

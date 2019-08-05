@@ -278,7 +278,7 @@ class EditJobModal extends Component {
                                 </section>
                                 <section className="Edit_dates">
                                     <div className="Row_date_applied">
-                                        <label htmlFor="date_applied" className="date_applied">Date Applied</label>
+                                        <label htmlFor="date_applied" className="date_applied">Applied</label>
                                         <input
                                             type="date"
                                             id="date_applied"
@@ -289,7 +289,7 @@ class EditJobModal extends Component {
                                         />
                                     </div>
                                     <div className="Row_interview_date">
-                                        <label htmlFor="interview_date" className="interview_date">Interview Date</label>
+                                        <label htmlFor="interview_date" className="interview_date">Interview</label>
                                         <input
                                             type="date"
                                             id="interview_date"
@@ -311,7 +311,7 @@ class EditJobModal extends Component {
                                         />
                                     </div>
                                     <div className="Row_status">
-                                        <label htmlFor="application_status" className="application_status">Application Status</label>
+                                        <label htmlFor="application_status" className="application_status">Status</label>
                                         <select 
                                             id="application_status" 
                                             value={applicationStatus} 
