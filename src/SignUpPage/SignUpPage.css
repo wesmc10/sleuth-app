@@ -1,6 +1,5 @@
 .SignUpPage_main {
-    height: 100vh;
-    color: white;
+    min-height: 760px;
     background: linear-gradient(#197902, black);
 }
 

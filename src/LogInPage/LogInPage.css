@@ -1,7 +1,7 @@
-/* .LogInPage_main {
-    height: 100vh;;
+.LogInPage_main {
+    min-height: 760px;
     background: linear-gradient(#197902, black);
-} */
+}
 
 .LogInPage_login_section {
     display: flex;
